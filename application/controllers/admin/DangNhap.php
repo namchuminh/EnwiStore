@@ -20,9 +20,12 @@ class DangNhap extends CI_Controller {
 			$result = $this->Model_DangNhap->checkAdmin($taikhoan,$matkhau);
 
 			if ($result == 1) {
+				$infoAdmin = $this->Model_DangNhap->getInfoAdmin($taikhoan);
 				$newdata = array(
 			        'username'  => $taikhoan,
-			        'logged_in' => TRUE
+			        'logged_in' => TRUE,
+			        'fullname' => $infoAdmin[0]['HoTenAdmin'],
+			        'avatar' => $infoAdmin[0]['avatar'],
 				);
 				$this->session->set_userdata($newdata);
 				return redirect(base_url('admin'));

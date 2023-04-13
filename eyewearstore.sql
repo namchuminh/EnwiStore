@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2023 at 10:03 PM
+-- Generation Time: Apr 13, 2023 at 08:34 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -171,13 +171,22 @@ INSERT INTO `anh` (`MaAnh`, `MaSP`, `TenAnh`) VALUES
 CREATE TABLE `donhang` (
   `MaDH` varchar(20) NOT NULL,
   `MaKH` int(11) NOT NULL,
-  `TinhTrangDH` varchar(100) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
-  `PTTT` varchar(100) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
+  `TinhTrangDH` int(1) NOT NULL,
+  `PTTT` int(1) NOT NULL,
   `HoTenKH` varchar(100) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
   `SDT` varchar(10) NOT NULL,
   `DiaChiNhanHang` varchar(100) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
-  `Email` varchar(100) NOT NULL
+  `Email` varchar(100) NOT NULL,
+  `ThoiGian` datetime NOT NULL DEFAULT current_timestamp(),
+  `TongTien` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `donhang`
+--
+
+INSERT INTO `donhang` (`MaDH`, `MaKH`, `TinhTrangDH`, `PTTT`, `HoTenKH`, `SDT`, `DiaChiNhanHang`, `Email`, `ThoiGian`, `TongTien`) VALUES
+('DH01', 1, 0, 1, 'Nam Chu Minh', '0999999999', 'Hà Nội', 'nam@gmail.com', '2023-04-13 00:00:00', 150000);
 
 -- --------------------------------------------------------
 
@@ -410,8 +419,17 @@ INSERT INTO `sanpham` (`MaSP`, `MaLoai`, `TenSP`, `SoLuong`, `ThuongHieu`, `GiaT
 CREATE TABLE `sanpham_donhang` (
   `MaSP` varchar(20) NOT NULL,
   `MaDH` varchar(20) NOT NULL,
+  `SoLuong` int(11) NOT NULL,
   `PhiShip` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sanpham_donhang`
+--
+
+INSERT INTO `sanpham_donhang` (`MaSP`, `MaDH`, `SoLuong`, `PhiShip`) VALUES
+('0001', 'DH01', 3, 30000),
+('0002', 'DH01', 2, 30000);
 
 -- --------------------------------------------------------
 
@@ -434,20 +452,22 @@ CREATE TABLE `sanpham_giohang` (
 CREATE TABLE `taikhoan` (
   `MaTK` int(11) NOT NULL,
   `ID` tinyint(1) NOT NULL,
+  `HoTenAdmin` varchar(255) DEFAULT NULL,
   `TenTK` varchar(50) NOT NULL,
-  `SDT` varchar(10) NOT NULL,
-  `MatKhau` varchar(200) NOT NULL
+  `SDT` varchar(11) NOT NULL,
+  `MatKhau` varchar(200) NOT NULL,
+  `avatar` text NOT NULL DEFAULT 'user.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `taikhoan`
 --
 
-INSERT INTO `taikhoan` (`MaTK`, `ID`, `TenTK`, `SDT`, `MatKhau`) VALUES
-(1, 0, 'admin', '0837535622', '12345678'),
-(2, 1, 'user1', '0831244232', '12345678'),
-(3, 1, 'trịnh bảo yến', '0837535628', '12345678'),
-(4, 1, 'hoàng tú', '0972516738', '12345678');
+INSERT INTO `taikhoan` (`MaTK`, `ID`, `HoTenAdmin`, `TenTK`, `SDT`, `MatKhau`, `avatar`) VALUES
+(1, 0, 'Trịnh Bảo Yến', 'admin', '0837535622', '123456789', 'user2.png'),
+(2, 1, NULL, 'user1', '0831244232', '12345678', 'user.png'),
+(3, 1, NULL, 'trịnh bảo yến', '0837535628', '12345678', 'user.png'),
+(4, 1, NULL, 'hoàng tú', '0972516738', '12345678', 'user.png');
 
 --
 -- Indexes for dumped tables
@@ -536,7 +556,7 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT for table `anh`
 --
 ALTER TABLE `anh`
-  MODIFY `MaAnh` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `MaAnh` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
 
 --
 -- Constraints for dumped tables

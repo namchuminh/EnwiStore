@@ -71,18 +71,18 @@
                         <li>
                             <!-- User Profile-->
                             <div class="user-profile d-flex no-block dropdown m-t-20">
-                                <div class="user-pic"><img src="assets/images/users/1.jpg" alt="users"
+                                <div class="user-pic"><img id="output1" style="height: 40px;" src="<?php echo base_url('uploads/avatar/'.$_SESSION['avatar']); ?>" alt="users"
                                         class="rounded-circle" width="40" /></div>
                                 <div class="user-content hide-menu m-l-10">
                                     <a href="#" class="" id="Userdd" role="button"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <h5 class="m-b-0 user-name font-medium">Chu Minh Nam <i
+                                        <h5 class="m-b-0 user-name font-medium"><?php echo $_SESSION['fullname']; ?> <i
                                                 class="fa fa-angle-down"></i></h5>
-                                        <span class="op-5 user-email">admin</span>
+                                        <span class="op-5 user-email"><?php echo $_SESSION['username']; ?></span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
                                         
-                                        <a class="dropdown-item" href="ca-nhan.php"><i
+                                        <a class="dropdown-item" href="<?php echo base_url('admin/ca-nhan/'); ?>"><i
                                                 class="ti-settings m-r-5 m-l-5"></i> Tài Khoản</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="<?php echo base_url('admin/dang-xuat/') ?>"><i
@@ -99,10 +99,10 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="<?php echo base_url('admin/san-pham') ?>" aria-expanded="false"><i class="mdi mdi-border-all"></i><span class="hide-menu">Sản Phẩm</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="chuyen-muc.php" aria-expanded="false"><i class="mdi mdi-file"></i><span
+                                href="<?php echo base_url('admin/chuyen-muc/'); ?>" aria-expanded="false"><i class="mdi mdi-file"></i><span
                                     class="hide-menu">Chuyên Mục</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="don-hang.php" aria-expanded="false"><i
+                                href="<?php echo base_url('admin/don-hang/'); ?>" aria-expanded="false"><i
                                     class="mdi mdi-account-network"></i><span
                                     class="hide-menu">Đơn Hàng</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"

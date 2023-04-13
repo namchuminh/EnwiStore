@@ -62,3 +62,18 @@ $route['admin/dang-xuat'] = 'admin/DangNhap/DangXuat';
 $route['admin/san-pham'] = 'admin/SanPham/index';
 $route['admin/them-san-pham'] = 'admin/SanPham/ThemSanPham';
 $route['admin/sua-san-pham/(:any)'] = 'admin/SanPham/SuaSanPham/$1';
+$route['admin/xoa-san-pham/(:any)'] = 'admin/SanPham/XoaSanPham/$1';
+
+$route['admin/chuyen-muc'] = 'admin/ChuyenMuc/index';
+$route['admin/them-chuyen-muc'] = 'admin/ChuyenMuc/ThemChuyenMuc';
+$route['admin/sua-chuyen-muc/(:any)'] = 'admin/ChuyenMuc/SuaChuyenMuc/$1';
+$route['admin/xoa-chuyen-muc/(:any)'] = 'admin/ChuyenMuc/XoaChuyenMuc/$1';
+
+$route['admin/don-hang'] = 'admin/DonHang/index';
+$route['admin/don-hang/(:any)'] = 'admin/DonHang/ChiTiet/$1';
+$route['admin/xu-ly-don/(:any)/(:any)'] = 'admin/DonHang/XuLyDon/$1/$2';
+$route['admin/don-hang-huy'] = 'admin/DonHang/DonDaHuy';
+$route['admin/khoi-phuc-don/(:any)/(:any)'] = 'admin/DonHang/KhoiPhucDon/$1/$2';
+
+
+$route['admin/ca-nhan'] = 'admin/CaNhan/index';

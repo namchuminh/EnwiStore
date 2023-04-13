@@ -195,6 +195,12 @@ class SanPham extends CI_Controller {
 
 		return $this->load->view('admin/SuaSanPham', $data);
 	}
+
+	public function XoaSanPham($masanpham){
+		$this->Model_SanPham->deleteAnh($masanpham);
+		$this->Model_SanPham->deleteSanPham($masanpham);
+		return redirect(base_url('admin/san-pham'));
+	}
 }
 
 /* End of file SanPham.php */

@@ -56,7 +56,7 @@
 	                                                <td><?php echo number_format($value['GiaTien']); ?>đ</td>
 	                                                <td>
 	                                                	<a href="<?php echo base_url('admin/sua-san-pham/'.$value['MaSP']); ?>" style="margin-right: 10px;"><i class="fa-solid fa-pen-to-square"></i></a>
-	                                                	<a href=""><i class="fa-solid fa-trash"></i></a>
+	                                                	<a href="<?php echo base_url('admin/xoa-san-pham/'.$value['MaSP']); ?>"><i class="fa-solid fa-trash"></i></a>
 	                                                </td>
 	                                            </tr>
 	                                        <?php $i++; ?>

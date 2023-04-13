@@ -17,6 +17,12 @@ class Model_DangNhap extends CI_Model {
 		return $result->num_rows();
 	}
 
+	public function getInfoAdmin($taikhoan){
+		$sql = "SELECT * FROM taikhoan WHERE TenTK = ?";
+		$result = $this->db->query($sql,array($taikhoan));
+		return $result->result_array();
+	}
+
 }
 
 /* End of file DangNhap.php */

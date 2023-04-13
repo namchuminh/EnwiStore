@@ -59,6 +59,18 @@ class Model_SanPham extends CI_Model {
 		$result = $this->db->query($sql, array($maloai,$tensanpham,$soluong,$thuonghieu,$giatien,$chatlieu,$xuatxu,$thongso,$masanpham));
 		return $result;
 	}
+
+	public function deleteAnh($masanpham){
+		$sql = "DELETE FROM `anh` WHERE `MaSP`=?";
+		$result = $this->db->query($sql, array($masanpham));
+		return $result;
+	}
+
+	public function deleteSanPham($masanpham){
+		$sql = "DELETE FROM `sanpham` WHERE `MaSP`=?";
+		$result = $this->db->query($sql, array($masanpham));
+		return $result;
+	}
 }
 
 /* End of file Model_SanPham.php */
