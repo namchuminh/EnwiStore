@@ -1,0 +1,98 @@
+.cart {
+    padding: 100px 0;
+}
+
+.cart-content-left {
+    flex: 2;
+    padding-right: 20px;
+}
+
+.cart-content-left table {
+    width: 100%;
+    text-align: left;
+}
+
+.cart-content-left table th {
+    padding: 15px 0;
+    font-size: 15px;
+    border-collapse: collapse;
+    border-bottom: 2px solid black;
+}
+
+.cart-content-left table p {
+    font-size: 15px;
+}
+
+.cart-content-left table input {
+    width: 60px;
+}
+
+.cart-content-left table i {
+    cursor: pointer;
+}
+
+.cart-content-left table td {
+    padding: 20px 10px;
+    border-bottom: 1px solid black;
+}
+
+.cart-content-left td:first-child img {
+    width: 150px;
+}
+
+.cart-content-left td:first-child {
+    width: 180px;
+}
+
+.cart-content-left td:nth-child(2) {
+    max-width: 100px;
+}
+
+.cart-content-left button {
+    margin-top: 10px;
+}
+
+.cart-content-left button:hover {
+    background-color: rgb(66, 108, 180);
+    color: white;
+    transition: 0.3s;
+}
+
+.cart-content-right {
+    flex: 1;
+    padding-left: 15x;
+    background: whitesmoke;
+    border: 1px solid rgba(66, 66, 66, 0.33);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
+    height: 90%;
+}
+
+.cart-content-right table {
+    width: 100%;
+}
+
+.cart-content-right table th {
+    padding: 15px 0;
+    font-size: 15px;
+    border-collapse: collapse;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+
+.cart-content-right table td {
+    font-size: 15px;
+    padding: 20px 0;
+}
+
+.cart-content-right tr:nth-child(4) td {
+    border-top: 2px solid black;
+}
+
+.cart-content-right button {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(66, 108, 180);
+    color: white;
+    font-weight: bold;
+    border: none;
+}

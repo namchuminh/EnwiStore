@@ -1,0 +1,154 @@
+img {
+    vertical-align: middle;
+    border-style: none;
+    max-width: 100%;
+}
+
+.cartegory {
+    padding: 50px 0 0;
+}
+
+
+/*----------------------LEFT--------------*/
+
+.cartegory-left {
+    width: 20%;
+}
+
+.cartegory-left ul li {
+    padding: 12px 0;
+}
+
+.cartegory-left ul li a {
+    color: black;
+    font-size: 18px;
+}
+
+
+/*------------------RIGHT---------------------*/
+
+.cartegory-right {
+    width: 80%;
+}
+
+.cartegory-right-top-item:first-child {
+    flex: 2;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cartegory-right-top-item {
+    flex: 1;
+    padding: 0 12px;
+}
+
+.cartegory-right-top-item button {
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.cartegory-right-top-item select {
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.cartegory-right-content {
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.cartegory-right-content-item {
+    width: calc(25% - 12px);
+    text-align: left;
+    padding: 12px 0;
+}
+
+.cartegory-right-content h1 {
+    font-size: 16px;
+    margin-top: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+.cartegory-right-content img {
+    width: 100%;
+}
+
+
+/*----------------set color for item--------*/
+
+div.colors div {
+    margin-top: 3px;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    float: left;
+}
+
+div.colors div span {
+    width: 15px;
+    height: 15px;
+    display: block;
+    border-radius: 50%;
+}
+
+div.colors div span:hover {
+    width: 17px;
+    height: 17px;
+    margin: -1px 0 0 -1px;
+}
+
+div.c-blue span {
+    background: #6e8cd5;
+}
+
+div.c-red span {
+    background: #f56060;
+}
+
+div.c-green span {
+    background: #44c28d;
+}
+
+div.c-white span {
+    background: #fff;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #e8e9eb;
+}
+
+
+/*------------------------------nav pagination*/
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+
+/* set the style for the active class */
+
+.pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+
+
+/* add background color when user hovers on inactive class */
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}

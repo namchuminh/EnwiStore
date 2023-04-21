@@ -14,6 +14,7 @@
     <title>Trang Quản Trị - Admin</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/xtreme-admin-lite/" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    
     <link href="<?php echo base_url('public/admin/'); ?>assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <link href="<?php echo base_url('public/admin/'); ?>dist/css/style.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -94,7 +95,7 @@
                         </li>
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="index.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                href="<?php echo base_url('admin/'); ?>" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="<?php echo base_url('admin/san-pham') ?>" aria-expanded="false"><i class="mdi mdi-border-all"></i><span class="hide-menu">Sản Phẩm</span></a></li>
@@ -106,7 +107,7 @@
                                     class="mdi mdi-account-network"></i><span
                                     class="hide-menu">Đơn Hàng</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="khach-hang.php" aria-expanded="false"><i class="mdi mdi-face"></i><span
+                                href="<?php echo base_url('admin/khach-hang/'); ?>" aria-expanded="false"><i class="mdi mdi-face"></i><span
                                     class="hide-menu">Khách Hàng</span></a></li>
                     </ul>
 

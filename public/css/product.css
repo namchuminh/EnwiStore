@@ -1,0 +1,198 @@
+.product {
+    padding: 100px;
+    padding-bottom: 50px;
+}
+
+.product-content-left {
+    width: 50%;
+    padding-right: 30px;
+}
+
+.product-content-left-big-img {
+    width: 80%;
+    padding-bottom: 20px;
+}
+
+.product-content-left-big-img img {
+    width: 100%;
+    cursor: pointer;
+}
+
+product-content-left-small-img {
+    width: 20%;
+}
+
+.product-content-left-small-img img {
+    width: 20%;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.product-content-right {
+    width: 50%;
+    padding-left: 30px;
+}
+
+.product-content-right-name h1 {
+    font-size: 20px;
+}
+
+.product-content-right-name p {
+    color: gray;
+    font-size: 15px;
+}
+
+.product-content-right-price {
+    font-size: 20px;
+    margin: 12px 0;
+    font-weight: bold;
+}
+
+
+/*--------------màu sắc-----------*/
+
+.product-content-right-color {
+    margin-left: 0px;
+}
+
+div.product-content-right-color div {
+    margin-top: 3px;
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+}
+
+div.product-content-right-color div span {
+    width: 25px;
+    height: 25px;
+    display: block;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+div.product-content-right-color div span:hover {
+    width: 27px;
+    height: 27px;
+    margin: -1px 0 0 -1px;
+}
+
+div.c-blue span {
+    background: #6e8cd5;
+}
+
+div.c-pink span {
+    background: pink;
+}
+
+div.c-green span {
+    background: #44c28d;
+}
+
+div.c-white span {
+    background: #fff;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #e8e9eb;
+}
+
+
+/*--------------------số lượng ---------------*/
+
+.product-content-right-quantity {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.product-content-right-quantity p {
+    padding-right: 10px;
+}
+
+.product-content-right-quantity input {
+    padding-left: 10px;
+    width: 20%;
+    height: 30px;
+}
+
+.product-content-right-button {
+    padding-left: 15px;
+}
+
+.product-content-right-button button {
+    width: auto;
+    height: 40px;
+    margin-right: 20px;
+    transition: all 0.3s ease;
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.product-content-right-button button:last-child {
+    background-color: rgb(106, 106, 214);
+    color: #fff;
+    border: 2px solid black;
+}
+
+.product-content-right-button button:hover {
+    background-color: black;
+    color: white;
+}
+
+.product-content-right hr {
+    border-top: 1px solid #c9baba;
+    margin-top: 30px;
+}
+
+.product-content-right-details #title {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.product-content-right-details i {
+    display: flex;
+    position: relative;
+    border: 1px solid #c9baba;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.product-content-right-details .inline {
+    margin-top: -16px;
+    z-index: -1;
+    border-bottom: 1px solid #c9baba;
+}
+
+.tab-content-details {
+    padding-top: 20px;
+}
+
+.product-content-right-details table {
+    width: 100%;
+    text-align: left;
+    max-width: 400px;
+}
+
+.product-content-right-details tab-content-details .information p {
+    text-align: left;
+}
+
+
+/*-----------sp liên quan------------*/
+
+.product-related {
+    padding: 0 100px;
+    padding-bottom: 50px;
+}
+
+.product-related-title {
+    text-align: left;
+    font-weight: bold;
+}

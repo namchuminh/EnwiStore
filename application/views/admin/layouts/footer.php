@@ -18,7 +18,7 @@
     <!--chartis chart-->
     <script src="<?php echo base_url('public/admin/'); ?>assets/libs/chartist/dist/chartist.min.js"></script>
     <script src="<?php echo base_url('public/admin/'); ?>assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="<?php echo base_url('public/admin/'); ?>dist/js/pages/dashboards/dashboard1.js"></script>
+    <script src="<?php echo base_url('public/admin/'); ?>dist/js/pages/dashboards/dashboard1.js"></script>  
 </body>
 
 </html>

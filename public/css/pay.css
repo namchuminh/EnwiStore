@@ -1,0 +1,178 @@
+.infor-pay {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.infor-customer-title p {
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(66, 108, 180);
+}
+
+.infor-pay-left {
+    width: 50%;
+}
+
+.infor-pay-left label {
+    width: 30%;
+    padding: 10px 5px;
+}
+
+.infor-pay-left input {
+    width: 50%;
+    height: 30px;
+}
+
+.infor-pay-left select {
+    width: 50%;
+    height: 30px;
+}
+
+.infor-pay-left textarea {
+    width: 50%;
+}
+
+
+/*-------------------content phải-------------*/
+
+.infor-pay-right {
+    width: 50%;
+}
+
+
+/*-------------------phương thức thanh toán-----------------*/
+
+.infor-pay-right .item-info .title {
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(66, 108, 180);
+    text-transform: uppercase;
+}
+
+.infor-pay-right .item-info {
+    padding-bottom: 30px;
+}
+
+.infor-pay-right .item-info .content .item {
+    margin-top: 15px;
+}
+
+.infor-pay-right .item-info .content .item .radio-cm-round {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-bottom: 12px;
+}
+
+.radio-cm-round input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.radio-cm-round input:checked~.checkmark {
+    background-color: #fff;
+}
+
+.radio-cm-round .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 1px solid rgba(66, 66, 66, .33);
+    -ms-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.radio-cm-round input:checked~.checkmark:after {
+    display: block;
+}
+
+.radio-cm-round .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 3px;
+    width: 6px;
+    height: 10px;
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/*-------------------đơn hàng-----------------------*/
+
+.payment-sum .content {
+    margin-top: 10px;
+    background: whitesmoke;
+    border: 1px solid rgba(66, 66, 66, 0.33);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
+}
+
+.payment-sum .content .main-content {
+    padding: 30px;
+}
+
+.payment-sum .content .main-content .list-product .sum-title {
+    border-bottom: 1px solid rgb(66, 66, 66);
+    padding-bottom: 5px;
+}
+
+.item-product {
+    position: relative;
+}
+
+.payment-sum .content .main-content .list-product .item-product {
+    margin-bottom: 15px;
+    padding: 5px 0px;
+    box-shadow: none;
+}
+
+.payment-sum .content .main-content .item {
+    border-bottom: 1px solid rgba(66, 66, 66, 0.33);
+    padding: 15px 0px 5px;
+}
+
+.payment-sum .content .main-content .item.none-border {
+    border-bottom: none;
+}
+
+.payment-sum .content .main-content .total {
+    border-top: 3px solid rgb(66, 66, 66);
+    padding-top: 30px;
+    color: rgb(66, 66, 66);
+}
+
+.payment-sum .content .main-content .total span {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.payment-sum .content button {
+    background: rgb(66, 108, 180);
+    font-weight: bold;
+    border: none;
+    width: 100%;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding: 10px 0px;
+    cursor: pointer;
+}
