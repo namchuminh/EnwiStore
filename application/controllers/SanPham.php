@@ -20,6 +20,20 @@ class SanPham extends CI_Controller {
 		return $this->load->view('SanPham', $data);
 	}
 
+
+	public function TimKiem(){
+		$TenSP = $this->input->get('s');
+
+		if(!isset($TenSP) || empty($TenSP)){
+			return redirect(base_url('san-pham/'));
+		}
+
+		$data = array(
+			'title' => "Tìm kiếm sản phẩm ".$TenSP,
+			'result' => $this->Model_SanPham->getSearchProduct($TenSP),
+		);
+		return $this->load->view('TimKiem',$data);
+	}
 }
 
 /* End of file SanPham.php */

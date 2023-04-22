@@ -34,6 +34,13 @@ class Model_SanPham extends CI_Model {
 		return $result->result_array();
 	}
 
+	public function getSearchProduct($TenSP){
+		$TenSP = "%".$TenSP."%";
+		$sql = "SELECT sanpham.*, anh.* FROM `sanpham`, `anh` WHERE sanpham.MaSP = anh.MaSP AND sanpham.TenSP LIKE ? GROUP BY sanpham.MaSP";
+		$result = $this->db->query($sql,$TenSP);
+		return $result->result_array();
+	}
+
 }
 
 /* End of file Model_SanPham.php */

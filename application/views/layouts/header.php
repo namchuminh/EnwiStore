@@ -52,11 +52,15 @@
             <li><a href="">Đo độ cận</a></li>
         </div>
         <div class="others">
-            <li> <input placeholder="Search" type="text">
-                <i class="fa fa-search"></i>
+            <li> 
+                <form action="<?php echo base_url('tim-kiem/'); ?>">
+                    <input placeholder="Search" type="text" name="s">
+                    <i class="fa fa-search"></i>
+                </form>
+                
             </li>
             <li>
-                <a class="fa fa-user" href="login.html"></a>
+                <a class="fa fa-user" href="<?php echo base_url('khach-hang/') ?>"></a>
             </li>
             <li>
                 <a class="fa fa-shopping-bag " href="cart.html"></a>
