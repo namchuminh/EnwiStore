@@ -68,8 +68,7 @@ class DangNhap extends CI_Controller {
 	}
 
 	public function DangXuat(){
-		$this->session->unset_userdata('username');
-		$this->session->unset_userdata('logged_in');
+		$this->session->sess_destroy();
 		return redirect(base_url('dang-nhap')); 
 	}
 

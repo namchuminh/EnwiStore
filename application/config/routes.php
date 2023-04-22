@@ -94,3 +94,5 @@ $route['dang-xuat'] = 'DangNhap/DangXuat';
 
 $route['tim-kiem'] = 'SanPham/TimKiem';
 $route['khach-hang'] = 'KhachHang/index';
+
+$route['don-hang/(:any)'] = 'KhachHang/DonHang/$1';
