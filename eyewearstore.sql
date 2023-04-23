@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2023 at 07:18 AM
+-- Generation Time: Apr 23, 2023 at 05:06 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -178,15 +178,17 @@ CREATE TABLE `donhang` (
   `DiaChiNhanHang` varchar(100) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
   `Email` varchar(100) NOT NULL,
   `ThoiGian` datetime NOT NULL DEFAULT current_timestamp(),
-  `TongTien` float NOT NULL
+  `TongTien` float NOT NULL,
+  `GhiChu` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `donhang`
 --
 
-INSERT INTO `donhang` (`MaDH`, `MaKH`, `TinhTrangDH`, `PTTT`, `HoTenKH`, `SDT`, `DiaChiNhanHang`, `Email`, `ThoiGian`, `TongTien`) VALUES
-('DH01', 1, 0, 1, 'Nam Chu Minh', '0999999999', 'Hà Nội', 'nam@gmail.com', '2023-04-13 00:00:00', 2590000);
+INSERT INTO `donhang` (`MaDH`, `MaKH`, `TinhTrangDH`, `PTTT`, `HoTenKH`, `SDT`, `DiaChiNhanHang`, `Email`, `ThoiGian`, `TongTien`, `GhiChu`) VALUES
+('DH000001', 4, 3, 0, 'Chu Minh Nam', '0999999999', 'Xóm A, Ngõ B, Thái Thịnh, Ba Vì, Hà Nội', 'nam@gmail.com', '2023-04-23 20:58:04', 2030000, 'ABCD'),
+('DH000002', 4, 0, 0, 'Chu Minh Nam', '0999999999', 'Hà Nội, Nam, Nam, Hà Nội', 'nam@gmail.com', '2023-04-23 21:52:13', 1530000, 'Nam');
 
 -- --------------------------------------------------------
 
@@ -205,7 +207,8 @@ CREATE TABLE `giohang` (
 --
 
 INSERT INTO `giohang` (`MaGioHang`, `MaKH`, `PhiShip`) VALUES
-('GH000001', 1, 30000);
+('GH000001', 1, 30000),
+('GH000002', 4, 30000);
 
 -- --------------------------------------------------------
 
@@ -232,7 +235,7 @@ INSERT INTO `khachhang` (`MaKH`, `MaTK`, `TenKH`, `Email`, `DiaChi`, `NgaySinh`,
 (1, 2, 'Nguyễn Trung Quân', 'trungquan@gmail.com', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội', '2001-08-20', 1, '2023-04-05'),
 (2, 3, 'Nguyễn Anh Tú', 'trungquan@gmail.com', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội', '2001-12-18', 1, '2023-04-09'),
 (3, 4, ' Trịnh Yến', 'trinhyen@gmail.com', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội', '2001-12-18', 1, '2023-04-14'),
-(4, 5, '', 'nam@gmail.com', '', NULL, 1, '2023-04-23');
+(4, 5, 'Chu Minh Nam', 'nam@gmail.com', 'Hà Nội', '1998-08-08', 1, '2023-04-23');
 
 -- --------------------------------------------------------
 
@@ -429,8 +432,9 @@ CREATE TABLE `sanpham_donhang` (
 --
 
 INSERT INTO `sanpham_donhang` (`MaSP`, `MaDH`, `SoLuong`, `PhiShip`) VALUES
-('0001', 'DH01', 3, 30000),
-('0002', 'DH01', 2, 30000);
+('0071', 'DH000001', 2, 30000),
+('0078', 'DH000001', 2, 30000),
+('0078', 'DH000002', 3, 30000);
 
 -- --------------------------------------------------------
 
@@ -469,7 +473,7 @@ INSERT INTO `taikhoan` (`MaTK`, `ID`, `HoTenAdmin`, `TenTK`, `SDT`, `MatKhau`, `
 (2, 1, NULL, 'user1', '0831244232', '12345678', 'user.png'),
 (3, 1, NULL, 'trịnh bảo yến', '0837535628', '12345678', 'user.png'),
 (4, 1, NULL, 'hoàng tú', '0972516738', '12345678', 'user.png'),
-(5, 1, NULL, 'nam', '', '12345678', 'user.png');
+(5, 1, NULL, 'nam', '0999999999', '12345678', 'user.png');
 
 --
 -- Indexes for dumped tables

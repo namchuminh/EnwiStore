@@ -50,8 +50,8 @@
 	                                                <td><?php echo number_format($value['PhiShip']); ?>đ</td>
                                                     <td>
                                                         <?php 
-                                                            $sum += ($value['GiaTien'] * $value['SoLuong']) + $value['PhiShip'];
-                                                            echo number_format(($value['GiaTien'] * $value['SoLuong']) + $value['PhiShip']); 
+                                                            $sum += ($value['GiaTien'] * $value['SoLuong']);
+                                                            echo number_format(($value['GiaTien'] * $value['SoLuong'])); 
                                                         ?>đ
                                                     </td>
 	                                            </tr>
@@ -59,7 +59,7 @@
                                         </tbody>
                                     </table>
                                     <div style="width: 100%;">
-                                        <p style="float: right;">Tổng Tiền: <?php echo number_format($sum); ?>đ</p>
+                                        <p style="float: right;">Tổng Tiền: <?php echo number_format($sum + $result[0]['PhiShip']); ?>đ</p>
 
                                     </div>
                                     <a class="btn btn-default text-white" href="<?php echo base_url('/'.$back); ?>">Quay Lại</a>

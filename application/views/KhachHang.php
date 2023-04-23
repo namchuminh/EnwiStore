@@ -1,7 +1,7 @@
 <?php require(__DIR__.'/layouts/header.php'); ?>
 <link rel="stylesheet" href="<?php echo base_url('public/css/pesional.css') ?>">
 <style>
-input[type=text], select {
+#lname, select {
   width: 100%;
   padding: 5px;
   display: inline-block;
@@ -23,8 +23,8 @@ input[type=submit] {
 }
 
 </style>
-<section class="product">
-	<div class="container row" style="margin: 0 auto; margin-top: 80px; margin-bottom: 30px; background: unset;">
+<section class="product" style="min-height: 700px;">
+	<div class="container row" style="margin: 0 auto; margin-top: 80px; margin-bottom: 5px; background: unset; min-height: inherit;">
 		<div class="tab">
 			<button class="tablinks" onclick="openCity(event, 'DonHang')" id="defaultOpen">Đơn Hàng</button>
 			<button class="tablinks" onclick="openCity(event, 'TaiKhoan')">Tài Khoản</button>
@@ -36,63 +36,90 @@ input[type=submit] {
 			<table id="customers">
 				<thead>
 					<tr>
-				    <th>Mã Đơn</th>
-				    <th>Tên Khách Hàng</th>
-				    <th>Số Điện Thoại</th>
-				    <th>Địa Chỉ</th>
-				    <th>Thanh Toán</th>
-				    <th>Thời Gian</th>
-				    <th>Tình Trạng</th>
-				    <th>Tổng Tiền</th>
-				    <th>Hủy Đơn</th>
-				    <th>Xem Đơn</th>
-			  	</tr>
+					    <th>Mã Đơn</th>
+					    <th>Tên Khách Hàng</th>
+					    <th>Số Điện Thoại</th>
+					    <th>Địa Chỉ</th>
+					    <th>Thanh Toán</th>
+					    <th>Thời Gian</th>
+					    <th>Tình Trạng</th>
+					    <th>Tổng Tiền</th>
+					    <th>Ghi Chú</th>
+					    <th>Xác Nhận</th>
+					    <th>Hủy Đơn</th>
+					    <th>Xem Đơn</th>
+				  	</tr>
 				</thead>
 				<tbody>
-					<?php foreach ($result as $key => $value): ?>
+					<?php if(count($result) == 0){ ?>
 						<tr>
-					    <td><?php echo $value['MaDH']; ?></td>
-					    <td><?php echo $value['HoTenKH']; ?></td>
-					    <td><?php echo $value['SDT']; ?></td>
-					    <td><?php echo $value['DiaChiNhanHang']; ?></td>
-					    <td>
-					    	<?php 
-                    if($value['PTTT'] == 1){
-                        echo "Chuyển khoản ngân hàng"; 
-                    }else{
-                        echo "Thanh toán khi nhận hàng";
-                    }
-                ?>
-					    </td>
-					    <td><?php echo $value['ThoiGian']; ?></td>
-					    <td>
-					    	<?php 
-                    if($value['TinhTrangDH'] == 0){
-                        echo "Chưa duyệt đơn";
-                    }else if($value['TinhTrangDH'] == 1){
-                        echo "Đang giao hàng";
-                    }else if($value['TinhTrangDH'] == 2){
-                        echo "Đã hủy đơn";
-                    }else if($value['TinhTrangDH'] == 3){
-                        echo "Bạn đã nhận";
-                    }
-                ?>
-					    </td>
-					    <td>
-					    	<?php echo number_format($value['TongTien']); ?>đ
-					    </td>
-					    <td>
-					    	<?php if($value['TinhTrangDH'] != 3 && $value['TinhTrangDH'] != 2){ ?>
-                  <a style="color: red; text-decoration: underline;" href="<?php echo base_url('don-hang/huy/'.$value['MaDH']); ?>">Hủy</a>
-                <?php }else{ ?>
-                  <?php echo 'Không được phép'; ?>
-                <?php } ?>
-					    </td>
-					    <td>
-					    	<a class="btn btn-default text-black" style="text-decoration: underline;" href="<?php echo base_url('don-hang/'.$value['MaDH']); ?>">Xem</a>
-					    </td>
-					  </tr>
-					<?php endforeach ?>
+							<td colspan="12" style="border: none;"> 
+					            <br>
+					            <div style="text-align: center;">
+					            	<p>Bạn chưa có đơn hàng nào trong lịch sử, vui lòng mua hàng!</p>
+					            	<a style="margin-top: 200px" href="<?php echo base_url(); ?>"> << TIẾP TỤC MUA HÀNG</a>
+					            </div>
+							</td>
+						</tr>
+						
+					<?php }else{ ?>
+						<?php foreach ($result as $key => $value): ?>
+							<tr>
+							    <td><?php echo $value['MaDH']; ?></td>
+							    <td><?php echo $value['HoTenKH']; ?></td>
+							    <td><?php echo $value['SDT']; ?></td>
+							    <td><?php echo $value['DiaChiNhanHang']; ?></td>
+							    <td>
+							    	<?php 
+					                    if($value['PTTT'] == 1){
+					                        echo "Chuyển khoản ngân hàng"; 
+					                    }else{
+					                        echo "Thanh toán khi nhận hàng";
+					                    }
+					                ?>
+							    </td>
+							    <td><?php echo $value['ThoiGian']; ?></td>
+							    <td>
+							    	<?php 
+					                    if($value['TinhTrangDH'] == 0){
+					                        echo "Chưa duyệt đơn";
+					                    }else if($value['TinhTrangDH'] == 1){
+					                        echo "Đang giao hàng";
+					                    }else if($value['TinhTrangDH'] == 2){
+					                        echo "Đã hủy đơn";
+					                    }else if($value['TinhTrangDH'] == 3){
+					                        echo "Bạn đã nhận";
+					                    }
+					                ?>
+							    </td>
+							    <td>
+							    	<?php echo number_format($value['TongTien']); ?>đ
+							    </td>
+							    <td>
+							    	<?php echo $value['GhiChu']; ?>
+							    </td>
+							    <td>
+							    	<?php if($value['TinhTrangDH'] == 1){ ?>
+                                        <a style="color: blue; text-decoration: underline;" href="<?php echo base_url('don-hang/giao/'.$value['MaDH']); ?>">Đã Giao</a>
+                                    <?php }else if($value['TinhTrangDH'] == 3){ ?>
+                                    	Đã Giao Hàng
+                                    <?php }else{ ?>
+                                    	Chờ Giao Hàng
+                                    <?php } ?>
+							    </td>
+							    <td>
+							    	<?php if($value['TinhTrangDH'] != 3 && $value['TinhTrangDH'] != 2){ ?>
+		                  				<a style="color: red; text-decoration: underline;" href="<?php echo base_url('don-hang/huy/'.$value['MaDH']); ?>">Hủy</a>
+					                <?php }else{ ?>
+					                	<?php echo 'Không được phép'; ?>
+					                <?php } ?>
+							    </td>
+							    <td>
+							    	<a class="btn btn-default text-black" style="text-decoration: underline;" href="<?php echo base_url('don-hang/'.$value['MaDH']); ?>">Xem</a>
+							    </td>
+						  	</tr>
+						<?php endforeach ?>
+					<?php } ?>
 				</tbody>
 			</table>
 		</div>
@@ -107,7 +134,7 @@ input[type=submit] {
 	      <?php } ?>
 				<form method="POST" style="padding: 15px;">
 					<label for="fname">Tài Khoản</label>
-					<input type="text" id="fname" name="taikhoan" placeholder="Tài khoản..." value="<?php echo $customer[0]['TenTK'] ?>" disabled required>
+					<input type="text" id="lname" name="taikhoan" placeholder="Tài khoản..." value="<?php echo $customer[0]['TenTK'] ?>" disabled required>
 
 					<label for="lname">Họ Tên</label>
 					<input type="text" id="lname" name="hoten" placeholder="Họ tên khách hàng..." value="<?php echo $customer[0]['TenKH'] ?>" required>
@@ -121,7 +148,6 @@ input[type=submit] {
 					<label for="lname">Ngày Sinh</label>
 					<br>
 					<input type="date" id="lname" name="ngaysinh" placeholder="Ngày sinh" value="<?php echo $customer[0]['NgaySinh'] ?>" required>
-					<br>
 					<br>
 					<label for="lname">Địa Chỉ</label>
 					<input type="text" id="lname" name="diachi" placeholder="Địa chỉ..." value="<?php echo $customer[0]['DiaChi'] ?>" required>
@@ -160,4 +186,19 @@ document.getElementById("defaultOpen").click();
 		openCity(event, 'TaiKhoan');
 	</script>
 <?php } ?>
+
+<?php if(isset($err) || isset($success)){ ?>
+	<script>
+		openCity(event, 'TaiKhoan');
+	</script>
+<?php } ?>
+
+<?php $info = $this->session->flashdata('info'); ?>
+<?php if($this->session->flashdata('info')){ ?>
+	<script>
+		alert("Vui lòng cập nhật thông tin thanh toán!")
+		openCity(event, 'TaiKhoan');
+	</script>
+<?php } ?>
+
 <?php require(__DIR__.'/layouts/footer.php'); ?>    

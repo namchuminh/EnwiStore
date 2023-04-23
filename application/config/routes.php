@@ -97,8 +97,13 @@ $route['khach-hang'] = 'KhachHang/index';
 
 $route['don-hang/(:any)'] = 'KhachHang/DonHang/$1';
 $route['don-hang/huy/(:any)'] = 'KhachHang/HuyDon/$1';
+$route['don-hang/giao/(:any)'] = 'KhachHang/GiaoDon/$1';
 
 $route['gio-hang'] = 'GioHang/index';
 $route['them-gio-hang'] = 'GioHang/ThemSanPham';
 $route['gio-hang/sua'] = 'GioHang/SuaSanPham';
 $route['gio-hang/xoa/(:any)'] = 'GioHang/XoaSanPham/$1';
+
+$route['kiem-tra-thanh-toan/(:any)'] = 'ThanhToan/KiemTraThanhToan/$1';
+$route['thanh-toan'] = 'ThanhToan/ThanhToanSanPham';
+$route['xu-ly-thanh-toan'] = 'ThanhToan/XuLyThanhToan';

@@ -11,7 +11,7 @@ class Model_index extends CI_Model {
 	}
 
 	public function getNewProduct(){
-		$sql = "SELECT sanpham.*, anh.* FROM `sanpham`, `anh` WHERE anh.MaSP = sanpham.MaSP ORDER BY sanpham.MaSP DESC LIMIT 8";
+		$sql = "SELECT sanpham.*, anh.* FROM `sanpham`, `anh` WHERE anh.MaSP = sanpham.MaSP ORDER BY sanpham.MaSP DESC LIMIT 12";
 		$result = $this->db->query($sql);
 		return $result->result_array();
 	}

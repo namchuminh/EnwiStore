@@ -32,7 +32,7 @@
         <header class="topbar" data-navbarbg="skin5">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin5">
-                    <a class="navbar-brand" href="index.php">
+                    <a class="navbar-brand" href="<?php echo base_url('admin/'); ?>">
                         <b class="logo-icon">
                             <img src="<?php echo base_url('public/admin/'); ?>assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->

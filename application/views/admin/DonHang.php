@@ -40,6 +40,7 @@
                                                 <th scope="col">Thời Gian</th>
                                                 <th scope="col">Tình Trạng</th>
                                                 <th scope="col">Tổng Tiền</th>
+                                                <th scope="col">Ghi Chú</th>
                                                 <th scope="col">Hành Động</th>
                                                 <th scope="col">Hủy Đơn</th>
                                                 <th scope="col">Xem Đơn</th>
@@ -77,6 +78,7 @@
                                                         ?>
                                                     </td>
 	                                                <td><?php echo number_format($value['TongTien']); ?>đ</td>
+                                                    <td><?php echo $value['GhiChu']; ?></td>
                                                     <td>
                                                         <?php if($value['TinhTrangDH'] == 0){ ?>
                                                                 <a class="btn btn-success text-white" href="<?php echo base_url('admin/xu-ly-don/'.$value['MaDH'].'/1'); ?>">Xác Nhận</a>

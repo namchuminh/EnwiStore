@@ -43,7 +43,7 @@
                 <input type="text" value="<?php echo $product[0]['MaSP']; ?>" name="masanpham" hidden>
                 <div class="product-content-right-button row">
                     <button type="submit" name="add"><p>THÊM VÀO GIỎ HÀNG</p></button>
-                    <button type="submit" name="pay"><p>MUA NGAY</p></button>
+                    <button name="pay"><p><a href="<?php echo base_url('kiem-tra-thanh-toan/'.$product[0]['MaSP']); ?>" style="color: white; text-decoration: none;">MUA NGAY</a></p></button>
                 </div>
             </form>
             

@@ -13,7 +13,14 @@ class index extends CI_Controller {
 
 	public function index()
 	{
-		return $this->load->view('admin/index');
+		$data = array(
+			'soDon' => $this->Model_index->TongDonNgay(),
+			'doanhThuNgay' => $this->Model_index->DoanhThuNgay()[0]['dt'],
+			'chuaXuLy' => $this->Model_index->ChuaXuLy(),
+			'khachHangNgay' => $this->Model_index->TongKhachHangNgay(),
+			'banChay' => $this->Model_index->SanPhamBanChay(),
+		);
+		return $this->load->view('admin/index', $data);
 	}
 
 	public function ThongKeDoanhThu(){

@@ -59,13 +59,15 @@ class GioHang extends CI_Controller {
 						$MaGioHang = "GH".$MaGioHang;
 					}
 					if($this->Model_GioHang->checkProductOfCart($MaGioHang,$MaSP) == 0){
-						if($this->Model_GioHang->addProductToCart($MaGioHang,$MaSP)){
-							$this->session->set_flashdata('mess', "Thêm sản phẩm vào giỏ hàng thành công!");
-							return redirect(base_url('san-pham/'.$MaSP), 'refresh');
-						}else{
-							$this->session->set_flashdata('mess', "Có lỗi khi thêm sản phẩm vào giỏ hàng!");
-							return redirect(base_url('san-pham/'.$MaSP), 'refresh');
+						if($this->Model_GioHang->addCart($MaGioHang,$MaKH,$PhiShip)){
+							if($this->Model_GioHang->addProductToCart($MaGioHang,$MaSP)){
+								$this->session->set_flashdata('mess', "Thêm sản phẩm vào giỏ hàng thành công!");
+								return redirect(base_url('san-pham/'.$MaSP), 'refresh');
+							}
 						}
+						$this->session->set_flashdata('mess', "Có lỗi khi thêm sản phẩm vào giỏ hàng!");
+						return redirect(base_url('san-pham/'.$MaSP), 'refresh');
+						
 					}else{
 						$this->session->set_flashdata('mess', "Sản phẩm đã có trong giỏ hàng!");
 						return redirect(base_url('san-pham/'.$MaSP), 'refresh');

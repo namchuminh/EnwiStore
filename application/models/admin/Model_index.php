@@ -27,6 +27,36 @@ class Model_index extends CI_Model {
 		
 	}
 
+	public function TongDonNgay(){
+		$sql = "SELECT * FROM `donhang` WHERE DAY(ThoiGian) = DAY(CURDATE()) AND MONTH(ThoiGian) = MONTH(CURDATE()) AND YEAR(CURDATE())";
+		$result = $this->db->query($sql);
+		return $result->num_rows();
+	}
+
+	public function DoanhThuNgay(){
+		$sql = "SELECT SUM(TongTien) AS dt FROM `donhang` WHERE DAY(ThoiGian) = DAY(CURDATE()) AND MONTH(ThoiGian) = MONTH(CURDATE()) AND YEAR(CURDATE());";
+		$result = $this->db->query($sql);
+		return $result->result_array();
+	}
+
+	public function ChuaXuLy(){
+		$sql = "SELECT * FROM `donhang` WHERE DAY(ThoiGian) = DAY(CURDATE()) AND MONTH(ThoiGian) = MONTH(CURDATE()) AND YEAR(CURDATE()) AND TinhTrangDH = 0";
+		$result = $this->db->query($sql);
+		return $result->num_rows();
+	}
+
+	public function TongKhachHangNgay(){
+		$sql = "SELECT * FROM `khachhang` WHERE DAY(ThoiGian) = DAY(CURDATE()) AND MONTH(ThoiGian) = MONTH(CURDATE()) AND YEAR(CURDATE());";
+		$result = $this->db->query($sql);
+		return $result->num_rows();
+	}
+
+	public function SanPhamBanChay(){
+		$sql = "SELECT sanpham_donhang.*, donhang.*, sanpham.*, SUM(sanpham_donhang.SoLuong) AS sl FROM `sanpham_donhang`, `donhang`, `sanpham` WHERE sanpham_donhang.MaDH = donhang.MaDH AND sanpham_donhang.MaSP = sanpham.MaSP GROUP BY sanpham_donhang.MaSP ORDER BY sl DESC LIMIT 10;";
+		$result = $this->db->query($sql);
+		return $result->result_array();
+	}
+
 }
 
 /* End of file Model_index.php */

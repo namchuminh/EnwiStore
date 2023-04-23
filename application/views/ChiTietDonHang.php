@@ -44,8 +44,8 @@
                         <td><?php echo number_format($value['PhiShip']); ?>đ</td>
                         <td>
                             <?php 
-                                $sum += ($value['GiaTien'] * $value['SoLuong']) + $value['PhiShip'];
-                                echo number_format(($value['GiaTien'] * $value['SoLuong']) + $value['PhiShip']); 
+                                $sum += ($value['GiaTien'] * $value['SoLuong']);
+                                echo number_format(($value['GiaTien'] * $value['SoLuong'])); 
                             ?>đ
                         </td>
                     </tr>

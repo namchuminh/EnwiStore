@@ -2,7 +2,7 @@
   float: left;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
-  width: 20%;
+  width: 15%;
 
 }
 
@@ -35,7 +35,7 @@
 .tabcontent {
   float: left;
   border: 1px solid #ccc;
-  width: 80%;
+  width: 85%;
   border-left: none;
 }
 
@@ -47,7 +47,7 @@
 
 #customers td, #customers th {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 2px;
 }
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}

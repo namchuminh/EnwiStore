@@ -102,7 +102,7 @@
 		                    <td><?php echo number_format($sum + $result[0]['PhiShip']); ?>đ</td>
 		                </tr>
 		            </table>
-		            <a href="pay.html"><button>THANH TOÁN</button></a>
+		            <a href="<?php echo base_url('kiem-tra-thanh-toan/cart'); ?>"><button>THANH TOÁN</button></a>
 		        </div>
 		    <?php } ?>
 	    </div>

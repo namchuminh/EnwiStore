@@ -31,13 +31,18 @@ class KhachHang extends CI_Controller {
 
 			if($this->Model_KhachHang->updateUser($hoten, $email, $diachi, $ngaysinh, $MaKH)){
 				if($this->Model_KhachHang->updateAccount($sodienthoai, $matkhau, $MaTK)){
-					$data = array(
-						'title' => "Thông tin khách hàng!",
-						'result' => $this->Model_KhachHang->getOrderByIdUser($MaKH),
-						'customer' => $this->Model_KhachHang->getInfoDetailUser($this->session->userdata('username')),
-						'success' => "Cập nhật thông tin thành công!",
-					);
-					return $this->load->view('KhachHang',$data);
+					if($this->session->has_userdata('updateInfo')){
+						$this->session->unset_userdata('updateInfo');
+						return redirect(base_url('thanh-toan/'));
+					}else{
+						$data = array(
+							'title' => "Thông tin khách hàng!",
+							'result' => $this->Model_KhachHang->getOrderByIdUser($MaKH),
+							'customer' => $this->Model_KhachHang->getInfoDetailUser($this->session->userdata('username')),
+							'success' => "Cập nhật thông tin thành công!",
+						);
+						return $this->load->view('KhachHang',$data);
+					}
 				}
 			}
 
@@ -69,6 +74,11 @@ class KhachHang extends CI_Controller {
 
 	public function HuyDon($MaDH){
 		$this->Model_DonHang->updateTinhTrangDonHang($MaDH,2);
+		return redirect(base_url('khach-hang/'));
+	}
+
+	public function GiaoDon($MaDH){
+		$this->Model_DonHang->updateTinhTrangDonHang($MaDH,3);
 		return redirect(base_url('khach-hang/'));
 	}
 }
