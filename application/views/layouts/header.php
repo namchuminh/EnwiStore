@@ -60,10 +60,10 @@
                 
             </li>
             <li>
-                <a class="fa fa-user" href="<?php echo base_url('khach-hang/') ?>"></a>
+                <a class="fa fa-user" href="<?php echo base_url('khach-hang/'); ?>"></a>
             </li>
             <li>
-                <a class="fa fa-shopping-bag " href="cart.html"></a>
+                <a class="fa fa-shopping-bag " href="<?php echo base_url('gio-hang/'); ?>"></a>
             </li>
         </div>
     </header>

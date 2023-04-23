@@ -96,3 +96,8 @@ $route['tim-kiem'] = 'SanPham/TimKiem';
 $route['khach-hang'] = 'KhachHang/index';
 
 $route['don-hang/(:any)'] = 'KhachHang/DonHang/$1';
+
+$route['gio-hang'] = 'GioHang/index';
+$route['them-gio-hang'] = 'GioHang/ThemSanPham';
+$route['gio-hang/sua'] = 'GioHang/SuaSanPham';
+$route['gio-hang/xoa/(:any)'] = 'GioHang/XoaSanPham/$1';

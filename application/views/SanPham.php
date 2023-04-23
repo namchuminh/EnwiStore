@@ -2,6 +2,12 @@
 <link rel="stylesheet" href="<?php echo base_url('public/css/product.css')?>">
 <link rel="stylesheet" href="<?php echo base_url('public/css/cartegory.css')?>">
 
+<?php 
+    $mess = $this->session->flashdata('mess');
+    if($this->session->flashdata('mess')){
+        echo "<script>alert('$mess')</script>";
+    }
+?>
 <section class="product">
     <div class="container row">
         <div class="product-content-left">
@@ -33,10 +39,14 @@
                 <p style="font-weight: bold;">Số lượng: </p>
                 <input type="number" min="1" value="1">
             </div>
-            <div class="product-content-right-button row">
-                <button><p>THÊM VÀO GIỎ HÀNG</p></button>
-                <button><p>MUA NGAY</p></button>
-            </div>
+            <form action="<?php echo base_url('them-gio-hang/'); ?>" method="POST">
+                <input type="text" value="<?php echo $product[0]['MaSP']; ?>" name="masanpham" hidden>
+                <div class="product-content-right-button row">
+                    <button type="submit" name="add"><p>THÊM VÀO GIỎ HÀNG</p></button>
+                    <button type="submit" name="pay"><p>MUA NGAY</p></button>
+                </div>
+            </form>
+            
             <hr>
             <div class="product-content-right-details">
                 <p id="title">CHI TIẾT SẢN PHẨM</p>
@@ -120,4 +130,5 @@
         })
     })
 </script>
+
 <?php require(__DIR__.'/layouts/footer.php'); ?>    
