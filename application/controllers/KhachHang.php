@@ -66,6 +66,11 @@ class KhachHang extends CI_Controller {
 		);
 		return $this->load->view('ChiTietDonHang', $data);
 	}
+
+	public function HuyDon($MaDH){
+		$this->Model_DonHang->updateTinhTrangDonHang($MaDH,2);
+		return redirect(base_url('khach-hang/'));
+	}
 }
 
 /* End of file KhachHang.php */

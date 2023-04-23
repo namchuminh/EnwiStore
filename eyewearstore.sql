@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2023 at 08:34 PM
+-- Generation Time: Apr 23, 2023 at 07:18 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -186,7 +186,7 @@ CREATE TABLE `donhang` (
 --
 
 INSERT INTO `donhang` (`MaDH`, `MaKH`, `TinhTrangDH`, `PTTT`, `HoTenKH`, `SDT`, `DiaChiNhanHang`, `Email`, `ThoiGian`, `TongTien`) VALUES
-('DH01', 1, 0, 1, 'Nam Chu Minh', '0999999999', 'Hà Nội', 'nam@gmail.com', '2023-04-13 00:00:00', 150000);
+('DH01', 1, 0, 1, 'Nam Chu Minh', '0999999999', 'Hà Nội', 'nam@gmail.com', '2023-04-13 00:00:00', 2590000);
 
 -- --------------------------------------------------------
 
@@ -205,9 +205,7 @@ CREATE TABLE `giohang` (
 --
 
 INSERT INTO `giohang` (`MaGioHang`, `MaKH`, `PhiShip`) VALUES
-('GH0001', 1, 30000),
-('GH0002', 2, 30000),
-('GH0003', 3, 30000);
+('GH000001', 1, 30000);
 
 -- --------------------------------------------------------
 
@@ -221,17 +219,20 @@ CREATE TABLE `khachhang` (
   `TenKH` varchar(100) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
   `Email` varchar(100) NOT NULL,
   `DiaChi` varchar(200) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
-  `NgaySinh` date DEFAULT NULL
+  `NgaySinh` date DEFAULT NULL,
+  `TrangThai` int(1) NOT NULL DEFAULT 1,
+  `ThoiGian` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `khachhang`
 --
 
-INSERT INTO `khachhang` (`MaKH`, `MaTK`, `TenKH`, `Email`, `DiaChi`, `NgaySinh`) VALUES
-(1, 2, 'Nguyễn Trung Quân', 'trungquan@gmail.com', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội', '2001-12-18'),
-(2, 3, 'Nguyễn Anh Tú', 'trungquan@gmail.com', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội', '2001-12-18'),
-(3, 4, ' Trịnh Yến', 'trinhyen@gmail.com', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội', '2001-12-18');
+INSERT INTO `khachhang` (`MaKH`, `MaTK`, `TenKH`, `Email`, `DiaChi`, `NgaySinh`, `TrangThai`, `ThoiGian`) VALUES
+(1, 2, 'Nguyễn Trung Quân', 'trungquan@gmail.com', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội', '2001-08-20', 1, '2023-04-05'),
+(2, 3, 'Nguyễn Anh Tú', 'trungquan@gmail.com', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội', '2001-12-18', 1, '2023-04-09'),
+(3, 4, ' Trịnh Yến', 'trinhyen@gmail.com', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội', '2001-12-18', 1, '2023-04-14'),
+(4, 5, '', 'nam@gmail.com', '', NULL, 1, '2023-04-23');
 
 -- --------------------------------------------------------
 
@@ -440,7 +441,7 @@ INSERT INTO `sanpham_donhang` (`MaSP`, `MaDH`, `SoLuong`, `PhiShip`) VALUES
 CREATE TABLE `sanpham_giohang` (
   `MaGioHang` varchar(20) NOT NULL,
   `MaSP` varchar(20) NOT NULL,
-  `PhiShip` int(11) NOT NULL
+  `SoLuong` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -467,7 +468,8 @@ INSERT INTO `taikhoan` (`MaTK`, `ID`, `HoTenAdmin`, `TenTK`, `SDT`, `MatKhau`, `
 (1, 0, 'Trịnh Bảo Yến', 'admin', '0837535622', '123456789', 'user2.png'),
 (2, 1, NULL, 'user1', '0831244232', '12345678', 'user.png'),
 (3, 1, NULL, 'trịnh bảo yến', '0837535628', '12345678', 'user.png'),
-(4, 1, NULL, 'hoàng tú', '0972516738', '12345678', 'user.png');
+(4, 1, NULL, 'hoàng tú', '0972516738', '12345678', 'user.png'),
+(5, 1, NULL, 'nam', '', '12345678', 'user.png');
 
 --
 -- Indexes for dumped tables
@@ -492,6 +494,7 @@ ALTER TABLE `donhang`
 --
 ALTER TABLE `giohang`
   ADD PRIMARY KEY (`MaGioHang`),
+  ADD UNIQUE KEY `MaGioHang` (`MaGioHang`),
   ADD KEY `MaKH` (`MaKH`);
 
 --

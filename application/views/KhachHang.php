@@ -83,7 +83,7 @@ input[type=submit] {
 					    </td>
 					    <td>
 					    	<?php if($value['TinhTrangDH'] != 3 && $value['TinhTrangDH'] != 2){ ?>
-                  <a class="btn btn-danger text-white" href="<?php echo base_url('admin/xu-ly-don/'.$value['MaDH'].'/2'); ?>">Hủy Đơn</a>
+                  <a style="color: red; text-decoration: underline;" href="<?php echo base_url('don-hang/huy/'.$value['MaDH']); ?>">Hủy</a>
                 <?php }else{ ?>
                   <?php echo 'Không được phép'; ?>
                 <?php } ?>
