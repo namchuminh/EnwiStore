@@ -23,16 +23,45 @@ class SanPham extends CI_Controller {
 
 	public function TimKiem(){
 		$TenSP = $this->input->get('s');
+		$start = 0;
+		$limit = 8;
 
 		if(!isset($TenSP) || empty($TenSP)){
 			return redirect(base_url('san-pham/'));
 		}
 
-		$data = array(
-			'title' => "Tìm kiếm sản phẩm ".$TenSP,
-			'result' => $this->Model_SanPham->getSearchProduct($TenSP),
-		);
-		return $this->load->view('TimKiem',$data);
+
+		if(isset($_GET['trang'])){
+			if($_GET['trang'] <= 0){
+				$_GET['trang'] = 1;
+			}
+
+			$start = ($_GET['trang'] - 1) * $limit; 
+
+			$sumProduct = $this->Model_SanPham->getSumSearchProduct($TenSP);
+			$result = $this->Model_SanPham->getSearchProduct($TenSP, $start, $limit);
+
+			$data = array(
+				'title' => "Tìm kiếm sản phẩm ".$TenSP,
+				'result' => $result,
+				'page' => ceil($sumProduct / $limit),
+				'TenSP'=> $TenSP,
+			);
+			return $this->load->view('TimKiem',$data);
+		}else{
+			$sumProduct = $this->Model_SanPham->getSumSearchProduct($TenSP);
+			$result = $this->Model_SanPham->getSearchProduct($TenSP, $start, $limit);
+
+			$data = array(
+				'title' => "Tìm kiếm sản phẩm ".$TenSP,
+				'result' => $result,
+				'page' => ceil($sumProduct / $limit),
+				'TenSP'=> $TenSP,
+			);
+			return $this->load->view('TimKiem',$data);
+		}
+
+		
 	}
 }
 

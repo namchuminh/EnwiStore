@@ -40,7 +40,7 @@ class Model_index extends CI_Model {
 	}
 
 	public function ChuaXuLy(){
-		$sql = "SELECT * FROM `donhang` WHERE DAY(ThoiGian) = DAY(CURDATE()) AND MONTH(ThoiGian) = MONTH(CURDATE()) AND YEAR(CURDATE()) AND TinhTrangDH = 0";
+		$sql = "SELECT * FROM `donhang` WHERE TinhTrangDH = 0";
 		$result = $this->db->query($sql);
 		return $result->num_rows();
 	}

@@ -34,11 +34,18 @@ class Model_SanPham extends CI_Model {
 		return $result->result_array();
 	}
 
-	public function getSearchProduct($TenSP){
+	public function getSearchProduct($TenSP, $start, $limit){
+		$TenSP = "%".$TenSP."%";
+		$sql = "SELECT sanpham.*, anh.* FROM `sanpham`, `anh` WHERE sanpham.MaSP = anh.MaSP AND sanpham.TenSP LIKE ? GROUP BY sanpham.MaSP LIMIT ?, ?";
+		$result = $this->db->query($sql,array($TenSP,$start, $limit));
+		return $result->result_array();
+	}
+
+	public function getSumSearchProduct($TenSP){
 		$TenSP = "%".$TenSP."%";
 		$sql = "SELECT sanpham.*, anh.* FROM `sanpham`, `anh` WHERE sanpham.MaSP = anh.MaSP AND sanpham.TenSP LIKE ? GROUP BY sanpham.MaSP";
-		$result = $this->db->query($sql,$TenSP);
-		return $result->result_array();
+		$result = $this->db->query($sql,array($TenSP));
+		return $result->num_rows();
 	}
 
 	public function getCategory($MaLoai,$TinhChat, $start, $limit){
