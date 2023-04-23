@@ -31,18 +31,14 @@
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <header class="topbar" data-navbarbg="skin5">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header" data-logobg="skin5">
+                <div class="navbar-header" data-logobg="skin5" style="background: white;">
                     <a class="navbar-brand" href="<?php echo base_url('admin/'); ?>">
-                        <b class="logo-icon">
-                            <img src="<?php echo base_url('public/admin/'); ?>assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
-                            <!-- Light Logo icon -->
-                            <img src="<?php echo base_url('public/admin/'); ?>assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
-                        </b>
+                        
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="<?php echo base_url('public/admin/'); ?>assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                            <img style="margin-left: 15px; margin-top: 2px;" src="<?php echo base_url('uploads/logo.jpg'); ?>" alt="homepage" class="dark-logo" />
                             <!-- Light Logo text -->
-                            <img src="<?php echo base_url('public/admin/'); ?>assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                            <img style="margin-left: 15px; margin-top: 2px;" src="<?php echo base_url('uploads/logo.jpg'); ?>" class="light-logo" alt="homepage" />
                         </span>
                     </a>
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i

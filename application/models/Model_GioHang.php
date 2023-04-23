@@ -32,9 +32,9 @@ class Model_GioHang extends CI_Model {
 		return $result;
 	}
 
-	public function addProductToCart($MaGioHang,$MaSP){
-		$sql = "INSERT INTO `sanpham_giohang`(`MaGioHang`, `MaSP`) VALUES (?,?)";
-		$result = $this->db->query($sql,array($MaGioHang,$MaSP));
+	public function addProductToCart($MaGioHang,$MaSP, $SoLuong){
+		$sql = "INSERT INTO `sanpham_giohang`(`MaGioHang`, `MaSP`, `SoLuong`) VALUES (?,?,?)";
+		$result = $this->db->query($sql,array($MaGioHang,$MaSP,$SoLuong));
 		return $result;
 	}
 

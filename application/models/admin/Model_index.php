@@ -34,7 +34,7 @@ class Model_index extends CI_Model {
 	}
 
 	public function DoanhThuNgay(){
-		$sql = "SELECT SUM(TongTien) AS dt FROM `donhang` WHERE DAY(ThoiGian) = DAY(CURDATE()) AND MONTH(ThoiGian) = MONTH(CURDATE()) AND YEAR(CURDATE());";
+		$sql = "SELECT SUM(TongTien) AS dt FROM `donhang` WHERE TinhTrangDH = 3 AND DAY(ThoiGian) = DAY(CURDATE()) AND MONTH(ThoiGian) = MONTH(CURDATE()) AND YEAR(CURDATE());";
 		$result = $this->db->query($sql);
 		return $result->result_array();
 	}

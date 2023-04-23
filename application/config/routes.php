@@ -88,6 +88,8 @@ $route['admin/doanh-thu'] = 'admin/index/ThongKeDoanhThu';
 //Khach hang
 
 $route['san-pham/(:any)'] = 'SanPham/index/$1';
+$route['chuyen-muc/(:any)/(:any)'] = 'ChuyenMuc/ChuyenMucSanPham/$1/$2';
+$route['chuyen-muc/(:any)'] = 'ChuyenMuc/ChuyenMuc/$1';
 $route['dang-nhap'] = 'DangNhap/DangNhap';
 $route['dang-ky'] = 'DangNhap/DangKy';
 $route['dang-xuat'] = 'DangNhap/DangXuat';

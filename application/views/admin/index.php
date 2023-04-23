@@ -128,7 +128,7 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a style="font-weight: bold; font-size: 16px" href="<?php echo base_url('san-pham'.$value['MaSP']); ?>"><?php echo $value['TenSP']; ?></a>
+                                                    <a style="font-weight: bold; font-size: 16px" href="<?php echo base_url('san-pham/'.$value['MaSP']); ?>"><?php echo $value['TenSP']; ?></a>
                                                 </td>
                                                 <td><?php echo number_format($value['GiaTien']); ?>đ</td>
                                                 <td>

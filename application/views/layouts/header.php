@@ -23,29 +23,29 @@
             <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url('uploads/'); ?>logo.jpg"></a>
         </div>
         <div class="menu">
-            <li><a href="cartegory.html">Gọng kính</a>
+            <li><a href="<?php echo base_url('chuyen-muc/L001/') ?>">Gọng kính</a>
                 <ul class="sub-menu">
-                    <li><a href=""> Nhựa </a></li>
-                    <li><a href=""> Kim loại </a></li>
-                    <li><a href=""> Nhựa mix kim loại </a></li>
+                    <li><a href="<?php echo base_url('chuyen-muc/L001/nhua-cung'); ?>"> Nhựa </a></li>
+                    <li><a href="<?php echo base_url('chuyen-muc/L001/kim-loai'); ?>"> Kim loại </a></li>
+                    <li><a href="<?php echo base_url('chuyen-muc/L001/nhua-mix-kim-loai'); ?>"> Nhựa mix kim loại </a></li>
                 </ul>
             </li>
-            <li><a href="">Tròng kính</a>
+            <li><a href="<?php echo base_url('chuyen-muc/L002/') ?>">Tròng kính</a>
                 <ul class="sub-menu">
-                    <li><a href=""> Chemi </a></li>
-                    <li><a href=""> Essilor </a></li>
-                    <li><a href=""> Mihan </a></li>
-                    <li><a href=""> Hoga </a></li>
-                    <li><a href=""> Kodak </a></li>
+                    <li><a href="<?php echo base_url('chuyen-muc/L002/Chemi'); ?>"> Chemi </a></li>
+                    <li><a href="<?php echo base_url('chuyen-muc/L002/Essilor'); ?>"> Essilor </a></li>
+                    <li><a href="<?php echo base_url('chuyen-muc/L002/Mihan'); ?>"> Mihan </a></li>
+                    <li><a href="<?php echo base_url('chuyen-muc/L002/Hoga'); ?>"> Hoga </a></li>
+                    <li><a href="<?php echo base_url('chuyen-muc/L002/Kodak'); ?>"> Kodak </a></li>
                 </ul>
             </li>
-            <li><a href="">Kính râm</a></li>
-            <li><a href="">Phụ kiện</a>
+            <li><a href="<?php echo base_url('chuyen-muc/L003/') ?>">Kính râm</a></li>
+            <li><a href="<?php echo base_url('chuyen-muc/L004/') ?>">Phụ kiện</a>
                 <ul class="sub-menu">
-                    <li><a href=""> Hộp kính </a></li>
-                    <li><a href=""> Túi tote </a></li>
-                    <li><a href=""> Khăn Nano </a></li>
-                    <li><a href=""> Dây đeo kính </a></li>
+                    <li><a href="<?php echo base_url('chuyen-muc/L004/hop-kinh'); ?>"> Hộp kính </a></li>
+                    <li><a href="<?php echo base_url('chuyen-muc/L004/tui-tote'); ?>"> Túi tote </a></li>
+                    <li><a href="<?php echo base_url('chuyen-muc/L004/khan-nano'); ?>"> Khăn Nano </a></li>
+                    <li><a href="<?php echo base_url('chuyen-muc/L004/day-deo-kinh'); ?>"> Dây đeo kính </a></li>
                 </ul>
             </li>
             <li><a href="">Thông tin</a></li>

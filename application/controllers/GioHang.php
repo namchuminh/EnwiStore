@@ -27,11 +27,12 @@ class GioHang extends CI_Controller {
 		$MaKH = $this->Model_KhachHang->getInfoUser($this->session->userdata('username'));
 		if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			$MaSP = $this->input->post('masanpham');
+			$SoLuong = $this->input->post('sl');
 			$PhiShip = 30000;
 			if($this->Model_GioHang->getIdOfCart() == FALSE){
 				$MaGioHang = "GH000001";
 				if($this->Model_GioHang->addCart($MaGioHang,$MaKH,$PhiShip)){
-					if($this->Model_GioHang->addProductToCart($MaGioHang,$MaSP)){
+					if($this->Model_GioHang->addProductToCart($MaGioHang,$MaSP, $SoLuong)){
 						$this->session->set_flashdata('mess', "Thêm sản phẩm vào giỏ hàng thành công!");
 						return redirect(base_url('san-pham/'.$MaSP), 'refresh');
 					}else{
@@ -60,7 +61,7 @@ class GioHang extends CI_Controller {
 					}
 					if($this->Model_GioHang->checkProductOfCart($MaGioHang,$MaSP) == 0){
 						if($this->Model_GioHang->addCart($MaGioHang,$MaKH,$PhiShip)){
-							if($this->Model_GioHang->addProductToCart($MaGioHang,$MaSP)){
+							if($this->Model_GioHang->addProductToCart($MaGioHang,$MaSP,$SoLuong)){
 								$this->session->set_flashdata('mess', "Thêm sản phẩm vào giỏ hàng thành công!");
 								return redirect(base_url('san-pham/'.$MaSP), 'refresh');
 							}
@@ -75,7 +76,7 @@ class GioHang extends CI_Controller {
 				}else{
 					$MaGioHang = $this->Model_GioHang->checkUserOfCart($MaKH);
 					if($this->Model_GioHang->checkProductOfCart($MaGioHang,$MaSP) == 0){
-						if($this->Model_GioHang->addProductToCart($MaGioHang,$MaSP)){
+						if($this->Model_GioHang->addProductToCart($MaGioHang,$MaSP,$SoLuong)){
 							$this->session->set_flashdata('mess', "Thêm sản phẩm vào giỏ hàng thành công!");
 							return redirect(base_url('san-pham/'.$MaSP), 'refresh');
 						}else{

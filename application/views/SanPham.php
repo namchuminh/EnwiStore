@@ -35,11 +35,11 @@
                 <?php endforeach ?>
                 
             </div>
-            <div class="product-content-right-quantity">
-                <p style="font-weight: bold;">Số lượng: </p>
-                <input type="number" min="1" value="1">
-            </div>
             <form action="<?php echo base_url('them-gio-hang/'); ?>" method="POST">
+                <div class="product-content-right-quantity">
+                    <p style="font-weight: bold;">Số lượng: </p>
+                    <input type="number" min="1" value="1" name="sl">
+                </div>
                 <input type="text" value="<?php echo $product[0]['MaSP']; ?>" name="masanpham" hidden>
                 <div class="product-content-right-button row">
                     <button type="submit" name="add"><p>THÊM VÀO GIỎ HÀNG</p></button>
