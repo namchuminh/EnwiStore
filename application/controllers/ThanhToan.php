@@ -17,10 +17,19 @@ class ThanhToan extends CI_Controller {
 
 	public function KiemTraThanhToan($MaSP)
 	{
+		$this->session->unset_userdata('mau');
+		$this->session->unset_userdata('sl');
+		$this->session->unset_userdata('MaSP');
 		if($this->Model_ThanhToan->checkProductId($MaSP) == 1){
+			$mau = $this->input->get('mau');
+			$sl = $this->input->get('sl');
+			$this->session->set_userdata('mau', $mau);
+			$this->session->set_userdata('sl', $sl);
 			$this->session->set_userdata('MaSP', $MaSP);
 			return redirect(base_url('thanh-toan/'));
 		}else if($MaSP == 'cart' && $this->Model_ThanhToan->checkProductId($MaSP) != 1){
+			$this->session->unset_userdata('mau');
+			$this->session->unset_userdata('sl');
 			$this->session->unset_userdata('MaSP');
 			return redirect(base_url('thanh-toan/'));
 		}else{
@@ -49,6 +58,8 @@ class ThanhToan extends CI_Controller {
 				'title' => "Thanh toán sản phẩm!",
 				'result' => $this->Model_KhachHang->getInfoDetailUser($this->session->userdata('username')),
 				'product' => $this->Model_SanPham->getProductById($MaSP),
+				'sl' => $this->session->userdata('sl'),
+				'mau' => $this->session->userdata('mau'),
 			);
 			return $this->load->view('ThanhToan', $data, FALSE);
 		}else{
@@ -74,11 +85,12 @@ class ThanhToan extends CI_Controller {
 			$PTTT = $this->input->post('pttt');
 			$TongTien = $this->Model_SanPham->getProductById($MaSP)[0]['GiaTien'] + $PhiShip;
 			$GhiChu = $this->input->post('gc');
-
+			$sl = $this->session->userdata('sl');
+			$mau = $this->session->userdata('mau');
 			if($this->Model_ThanhToan->checkNumberOrder() == FALSE){
 				$MaDH = "DH000001";
 				if($this->Model_ThanhToan->addOrder($MaDH, $MaKH, $PTTT, $HoTenKH, $SDT, $DiaChiNhanHang, $Email, $TongTien, $GhiChu)){
-					if($this->Model_ThanhToan->addProductToOrder($MaSP,$MaDH,1,$PhiShip)){
+					if($this->Model_ThanhToan->addProductToOrder($MaSP,$MaDH,$sl,$mau,$PhiShip)){
 						$data = array(
 							'title' => "Đặt hàng thành công!"
 						);
@@ -105,7 +117,7 @@ class ThanhToan extends CI_Controller {
 				}
 
 				if($this->Model_ThanhToan->addOrder($MaDH, $MaKH, $PTTT, $HoTenKH, $SDT, $DiaChiNhanHang, $Email, $TongTien, $GhiChu)){
-					if($this->Model_ThanhToan->addProductToOrder($MaSP,$MaDH,1,$PhiShip)){
+					if($this->Model_ThanhToan->addProductToOrder($MaSP,$MaDH,$sl,$mau,$PhiShip)){
 						$data = array(
 							'title' => "Đặt hàng thành công!"
 						);
@@ -131,7 +143,7 @@ class ThanhToan extends CI_Controller {
 				$MaDH = "DH000001";
 				if($this->Model_ThanhToan->addOrder($MaDH, $MaKH, $PTTT, $HoTenKH, $SDT, $DiaChiNhanHang, $Email, $TongTien, $GhiChu)){
 					foreach ($product as $key => $value) {
-						$this->Model_ThanhToan->addProductToOrder($value['MaSP'],$MaDH,$value['SoLuong'],$value['PhiShip']);
+						$this->Model_ThanhToan->addProductToOrder($value['MaSP'],$MaDH,$value['SoLuong'],$value['MauSac'],$value['PhiShip']);
 						$this->Model_GioHang->deleteProductOfCart($value['MaGioHang'],$value['MaSP']);
 					}
 
@@ -161,7 +173,7 @@ class ThanhToan extends CI_Controller {
 
 				if($this->Model_ThanhToan->addOrder($MaDH, $MaKH, $PTTT, $HoTenKH, $SDT, $DiaChiNhanHang, $Email, $TongTien, $GhiChu)){
 					foreach ($product as $key => $value) {
-						$this->Model_ThanhToan->addProductToOrder($value['MaSP'],$MaDH,$value['SoLuong'],$value['PhiShip']);
+						$this->Model_ThanhToan->addProductToOrder($value['MaSP'],$MaDH,$value['SoLuong'],$value['MauSac'],$value['PhiShip']);
 						$this->Model_GioHang->deleteProductOfCart($value['MaGioHang'],$value['MaSP']);
 					}
 

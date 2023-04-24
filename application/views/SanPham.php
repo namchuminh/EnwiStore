@@ -28,22 +28,56 @@
             <div class="product-content-right-price">
                 <p><?php echo number_format($product[0]['GiaTien']); ?><sup>đ</sup></p>
             </div>
-            <div class="product-content-right-color row">
-                <p style="font-weight: bold;">Màu sắc: </p>
-                <?php foreach ($color as $key => $value): ?>
-                	<div class="c-pink"><span style="border: 1px solid #eaeaea; background: <?php echo $value['TenMau']; ?>"></span></div>
-                <?php endforeach ?>
-                
-            </div>
+            
             <form action="<?php echo base_url('them-gio-hang/'); ?>" method="POST">
+                <div class="product-content-right-color row">
+                    <p style="font-weight: bold;">Màu sắc: </p>
+                    <?php if(count($color) == 0){ ?>
+                        <div class="c-pink"><span style="border: 1px solid black; background: white;"></span></div>
+                        <div class="c-pink"><span style="border: 1px solid black; background: black;"></span></div>
+                    <?php }else{ ?>
+                        <?php foreach ($color as $key => $value): ?>
+                        	<div class="c-pink"><span style="border: 1px solid black; background: <?php echo $value['TenMau']; ?>"></span></div>
+                        <?php endforeach ?>
+                    <?php } ?>
+                </div>
+                <?php 
+                    $mausac = array(
+                        'white' => 'Trắng',
+                        'pink' => 'Hồng',
+                        'blue' => 'Xanh',
+                        'gray' => 'Xám',
+                        'black' => 'Đen',
+                        'whitesmoke' => 'Khói trắng'
+                    ); 
+                ?>
+                <input type="text" class="msp" value="<?php echo $product[0]['MaSP']; ?>" hidden>
+                <br>
+                <div style="display: flex; width: 100%;">
+                    <p style="font-weight: bold;">Chọn màu: </p>
+                    <?php if(count($color) == 0){ ?>
+                        <select name="mau" style="width: 109px; height: 30px; margin-left: 5px;" class="mau">
+                            <option value="Đen">Đen</option>
+                            <option value="Trắng">Trắng</option>
+                        </select>
+                    <?php }else{ ?>
+                        <select name="mau" style="width: 109px; height: 30px; margin-left: 5px;">
+                            <?php foreach ($color as $key => $value): ?>
+                                <option value="<?php echo $mausac[strtolower($value['TenMau'])]; ?>"><?php echo $mausac[strtolower($value['TenMau'])]; ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    <?php } ?>
+                    
+                </div>
+                <br>
                 <div class="product-content-right-quantity">
                     <p style="font-weight: bold;">Số lượng: </p>
-                    <input type="number" min="1" value="1" name="sl">
+                    <input type="number" min="1" value="1" name="sl" class="sl">
                 </div>
                 <input type="text" value="<?php echo $product[0]['MaSP']; ?>" name="masanpham" hidden>
                 <div class="product-content-right-button row">
                     <button type="submit" name="add"><p>THÊM VÀO GIỎ HÀNG</p></button>
-                    <button name="pay"><p><a href="<?php echo base_url('kiem-tra-thanh-toan/'.$product[0]['MaSP']); ?>" style="color: white; text-decoration: none;">MUA NGAY</a></p></button>
+                    <button name="pay" class="pay"><p><a class="linkpay" href="<?php echo base_url('kiem-tra-thanh-toan/'.$product[0]['MaSP']); ?>" style="color: white; text-decoration: none;">MUA NGAY</a></p></button>
                 </div>
             </form>
             
@@ -121,6 +155,18 @@
     	<?php endforeach ?>
     </div>
 </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+    var base_url =  window.location.origin == "http://localhost" ? window.location.origin + "/EnwiStore" : window.location.origin
+    $(document).ready(function(){
+        $(".pay").hover(function(){
+            var msp = $('.msp').val()
+            var sl = $('.sl').val()
+            var mau = $('.mau').find(":selected").val()
+            $(".linkpay").attr('href',base_url + '/kiem-tra-thanh-toan/'+msp+'?sl='+sl+'&mau='+mau);
+        });
+    });
+</script>
 <script>
     const bigImg = document.querySelector(".product-content-left-big-img img")
     const smallImg = document.querySelectorAll(".product-content-left-small-img img")

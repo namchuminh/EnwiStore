@@ -30,6 +30,7 @@
 		                <tr>
 		                    <th>Sản phẩm</th>
 		                    <th>Tên sản phẩm</th>
+		                    <th>Màu Sắc</th>
 		                    <th>Số lượng</th>
 		                    <th>Đơn giá</th>
 		                    <th>Xóa</th>
@@ -39,6 +40,9 @@
 			                    <td><img src="<?php echo base_url('uploads/'.$value['TenAnh']); ?>" alt=""></td>
 			                    <td>
 			                        <p><?php echo $value['TenSP']; ?></p>
+			                    </td>
+			                    <td>
+			                    	<p><?php echo $value['MauSac']; ?></p>
 			                    </td>
 			                    <td>
 			                    	<input class="number" data="<?php echo $value['MaSP']; ?>" type="number" value="<?php echo $value['SoLuong']; ?>" min="1">

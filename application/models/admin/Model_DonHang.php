@@ -16,7 +16,7 @@ class Model_DonHang extends CI_Model {
 	}
 
 	public function getChiTietDonHang($MaDH){
-		$sql = "SELECT sanpham.MaSP, sanpham.TenSP, sanpham.GiaTien, sanpham_donhang.* FROM `sanpham`, `sanpham_donhang` WHERE sanpham.MaSP = sanpham_donhang.MaSP AND MaDH = ?";
+		$sql = "SELECT sanpham.MaSP, sanpham.TenSP, sanpham.GiaTien, sanpham_donhang.*, anh.* FROM `sanpham`, `sanpham_donhang`, `anh` WHERE sanpham.MaSP = sanpham_donhang.MaSP AND sanpham.MaSP = anh.MaSP AND MaDH = ? GROUP BY sanpham.MaSP";
 		$result = $this->db->query($sql, array($MaDH));
 		return $result->result_array();
 	}

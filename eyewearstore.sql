@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2023 at 05:06 PM
+-- Generation Time: Apr 24, 2023 at 01:00 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -187,8 +187,8 @@ CREATE TABLE `donhang` (
 --
 
 INSERT INTO `donhang` (`MaDH`, `MaKH`, `TinhTrangDH`, `PTTT`, `HoTenKH`, `SDT`, `DiaChiNhanHang`, `Email`, `ThoiGian`, `TongTien`, `GhiChu`) VALUES
-('DH000001', 4, 3, 0, 'Chu Minh Nam', '0999999999', 'Xóm A, Ngõ B, Thái Thịnh, Ba Vì, Hà Nội', 'nam@gmail.com', '2023-04-23 20:58:04', 2030000, 'ABCD'),
-('DH000002', 4, 0, 0, 'Chu Minh Nam', '0999999999', 'Hà Nội, Nam, Nam, Hà Nội', 'nam@gmail.com', '2023-04-23 21:52:13', 1530000, 'Nam');
+('DH000001', 1, 0, 0, 'Nguyễn Trung Quân', '0831244232', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội, TH, BV, Hà Nội', 'trungquan@gmail.com', '2023-04-24 17:56:26', 530000, 'Nhanh'),
+('DH000002', 1, 0, 0, 'Nguyễn Trung Quân', '0831244232', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội, DEF, ABC, Hà Nội', 'trungquan@gmail.com', '2023-04-24 17:59:25', 3530000, 'aaa');
 
 -- --------------------------------------------------------
 
@@ -207,8 +207,7 @@ CREATE TABLE `giohang` (
 --
 
 INSERT INTO `giohang` (`MaGioHang`, `MaKH`, `PhiShip`) VALUES
-('GH000001', 1, 30000),
-('GH000002', 4, 30000);
+('GH000001', 1, 30000);
 
 -- --------------------------------------------------------
 
@@ -224,7 +223,7 @@ CREATE TABLE `khachhang` (
   `DiaChi` varchar(200) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
   `NgaySinh` date DEFAULT NULL,
   `TrangThai` int(1) NOT NULL DEFAULT 1,
-  `ThoiGian` date NOT NULL DEFAULT current_timestamp()
+  `ThoiGian` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -265,7 +264,7 @@ INSERT INTO `loaisp` (`MaLoai`, `TenLoai`) VALUES
 --
 
 CREATE TABLE `mausac` (
-  `MaMau` varchar(10) NOT NULL,
+  `MaMau` int(10) NOT NULL,
   `MaSP` varchar(20) NOT NULL,
   `TenMau` varchar(50) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -275,21 +274,21 @@ CREATE TABLE `mausac` (
 --
 
 INSERT INTO `mausac` (`MaMau`, `MaSP`, `TenMau`) VALUES
-('M0001', '0001', 'Pink'),
-('M0002', '0001', 'White'),
-('M0003', '0001', 'Black'),
-('M0004', '0001', 'Gray'),
-('M0005', '0001', 'Blue'),
-('M0006', '0001', 'Whitesmoke'),
-('M0007', '0002', 'Black'),
-('M0008', '0003', 'Black'),
-('M0009', '0004', 'white'),
-('M0010', '0005', 'black'),
-('M0011', '0006', 'black'),
-('M0012', '0007', 'black'),
-('M0013', '0008', 'black'),
-('M0014', '0009', 'black'),
-('M0015', '0010', 'black');
+(1, '0001', 'Pink'),
+(2, '0001', 'White'),
+(3, '0001', 'Black'),
+(4, '0001', 'Gray'),
+(5, '0001', 'Blue'),
+(6, '0001', 'Whitesmoke'),
+(7, '0002', 'Black'),
+(8, '0003', 'Black'),
+(9, '0004', 'white'),
+(10, '0005', 'black'),
+(11, '0006', 'black'),
+(12, '0007', 'black'),
+(13, '0008', 'black'),
+(14, '0009', 'black'),
+(15, '0010', 'black');
 
 -- --------------------------------------------------------
 
@@ -423,6 +422,7 @@ INSERT INTO `sanpham` (`MaSP`, `MaLoai`, `TenSP`, `SoLuong`, `ThuongHieu`, `GiaT
 CREATE TABLE `sanpham_donhang` (
   `MaSP` varchar(20) NOT NULL,
   `MaDH` varchar(20) NOT NULL,
+  `MauSac` varchar(255) NOT NULL,
   `SoLuong` int(11) NOT NULL,
   `PhiShip` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -431,10 +431,11 @@ CREATE TABLE `sanpham_donhang` (
 -- Dumping data for table `sanpham_donhang`
 --
 
-INSERT INTO `sanpham_donhang` (`MaSP`, `MaDH`, `SoLuong`, `PhiShip`) VALUES
-('0071', 'DH000001', 2, 30000),
-('0078', 'DH000001', 2, 30000),
-('0078', 'DH000002', 3, 30000);
+INSERT INTO `sanpham_donhang` (`MaSP`, `MaDH`, `MauSac`, `SoLuong`, `PhiShip`) VALUES
+('0073', 'DH000002', 'Trắng', 5, 30000),
+('0076', 'DH000002', 'Đen', 1, 30000),
+('0078', 'DH000002', 'Đen', 1, 30000),
+('0079', 'DH000001', 'Trắng', 15, 30000);
 
 -- --------------------------------------------------------
 
@@ -445,6 +446,7 @@ INSERT INTO `sanpham_donhang` (`MaSP`, `MaDH`, `SoLuong`, `PhiShip`) VALUES
 CREATE TABLE `sanpham_giohang` (
   `MaGioHang` varchar(20) NOT NULL,
   `MaSP` varchar(20) NOT NULL,
+  `MauSac` varchar(255) NOT NULL,
   `SoLuong` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -563,7 +565,13 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT for table `anh`
 --
 ALTER TABLE `anh`
-  MODIFY `MaAnh` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
+  MODIFY `MaAnh` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
+
+--
+-- AUTO_INCREMENT for table `mausac`
+--
+ALTER TABLE `mausac`
+  MODIFY `MaMau` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables

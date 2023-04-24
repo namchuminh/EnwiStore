@@ -11,7 +11,7 @@ class Model_GioHang extends CI_Model {
 	}
 
 	public function getAllProductOfCart($MaKH){
-		$sql = "SELECT giohang.*, sanpham_giohang.*, sanpham.MaSP, sanpham.TenSP, sanpham.GiaTien, anh.* FROM `sanpham_giohang`, `giohang`, `sanpham`, `anh` WHERE sanpham_giohang.MaGioHang = giohang.MaGioHang AND sanpham_giohang.MaSP = sanpham.MaSP AND sanpham.MaSP = anh.MaSP AND giohang.MaKH = ?";
+		$sql = "SELECT giohang.*, sanpham_giohang.*, sanpham.MaSP, sanpham.TenSP, sanpham.GiaTien, anh.* FROM `sanpham_giohang`, `giohang`, `sanpham`, `anh` WHERE sanpham_giohang.MaGioHang = giohang.MaGioHang AND sanpham_giohang.MaSP = sanpham.MaSP AND sanpham.MaSP = anh.MaSP AND giohang.MaKH = ? GROUP BY sanpham.MaSP";
 		$result = $this->db->query($sql, array($MaKH));
 		return $result->result_array();
 	}
@@ -32,9 +32,9 @@ class Model_GioHang extends CI_Model {
 		return $result;
 	}
 
-	public function addProductToCart($MaGioHang,$MaSP, $SoLuong){
-		$sql = "INSERT INTO `sanpham_giohang`(`MaGioHang`, `MaSP`, `SoLuong`) VALUES (?,?,?)";
-		$result = $this->db->query($sql,array($MaGioHang,$MaSP,$SoLuong));
+	public function addProductToCart($MaGioHang,$MaSP,$MauSac,$SoLuong){
+		$sql = "INSERT INTO `sanpham_giohang`(`MaGioHang`, `MaSP`, `MauSac`, `SoLuong`) VALUES (?,?,?,?)";
+		$result = $this->db->query($sql,array($MaGioHang,$MaSP,$MauSac,$SoLuong));
 		return $result;
 	}
 

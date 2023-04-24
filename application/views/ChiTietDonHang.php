@@ -13,12 +13,9 @@
 		padding: 8px;
 	}
 
-	tr:nth-child(even) {
-		background-color: #dddddd;
-	}
 </style>
-<section class="product">
-	<div class="container row" style="margin: 0 auto; margin-top: 80px; margin-bottom: 30px;">
+<section class="product" style="height: 550px;">
+	<div class="container row" style="margin: 0 auto; margin-top: 100px; margin-bottom: 30px;">
 		<h5>Thông tin sản phẩm trong đơn hàng: <?php echo $MaDH; ?></h5>
 		<br>
 		<br>
@@ -26,8 +23,10 @@
 			<thead>
 				<tr>
 					<th>STT</th>
+					<th>Ảnh</th>
 				    <th>Tên Sản Phẩm</th>
 				    <th>Giá Bán</th>
+				    <th>Màu Sắc</th>
 				    <th>Số Lượng</th>
 				    <th>Phí Giao</th>
 				    <th>Thành Tiền</th>
@@ -38,8 +37,14 @@
            		<?php foreach ($result as $key => $value): ?>
            			<tr>
                         <th scope="row"><?php echo $key + 1; ?></th>
-                        <td><?php echo $value['TenSP']; ?></td>
+                        <td>
+                        	<img src="<?php echo base_url('uploads/'.$value['TenAnh']); ?>" alt="" style="width: 100px; height: 100px;">
+                        </td>
+                        <td>
+                        	<a style="color: black;" href="<?php echo base_url('san-pham/'.$value['MaSP']) ?>"><?php echo $value['TenSP']; ?></a> 
+                        </td>
                         <td><?php echo number_format($value['GiaTien']); ?>đ</td>
+                        <td><?php echo $value['MauSac']; ?></td>
                         <td>x<?php echo $value['SoLuong']; ?></td>
                         <td><?php echo number_format($value['PhiShip']); ?>đ</td>
                         <td>

@@ -32,9 +32,9 @@ class Model_ThanhToan extends CI_Model {
 		return $result;
 	}
 
-	public function addProductToOrder($MaSP,$MaDH,$SoLuong,$PhiShip){
-		$sql = "INSERT INTO `sanpham_donhang`(`MaSP`, `MaDH`, `SoLuong`, `PhiShip`) VALUES (?,?,?,?)";
-		$result = $this->db->query($sql,array($MaSP,$MaDH,$SoLuong,$PhiShip));
+	public function addProductToOrder($MaSP,$MaDH,$SoLuong,$mau,$PhiShip){
+		$sql = "INSERT INTO `sanpham_donhang`(`MaSP`, `MaDH`, `SoLuong`, `MauSac`, `PhiShip`) VALUES (?,?,?,?,?)";
+		$result = $this->db->query($sql,array($MaSP,$MaDH,$SoLuong,$mau,$PhiShip));
 		return $result;
 	}
 

@@ -47,6 +47,13 @@ class Model_SanPham extends CI_Model {
 		return $result->result_array();
 	}
 
+	public function getMauById($masanpham)
+	{
+		$sql = "SELECT * FROM mausac WHERE MaSP = ?";
+		$result = $this->db->query($sql, array($masanpham));
+		return $result->result_array();
+	}
+
 	public function updateAnh($maanh,$masanpham,$tenanh){
 		$sql = "UPDATE `anh` SET `TenAnh`= ? WHERE `MaAnh`= ? AND `MaSP`= ?";
 		$result = $this->db->query($sql, array($tenanh,$maanh,$masanpham));
@@ -68,6 +75,18 @@ class Model_SanPham extends CI_Model {
 
 	public function deleteSanPham($masanpham){
 		$sql = "DELETE FROM `sanpham` WHERE `MaSP`=?";
+		$result = $this->db->query($sql, array($masanpham));
+		return $result;
+	}
+
+	public function addMau($masanpham, $tenmau){
+		$sql = "INSERT INTO `mausac`(`MaSP`, `TenMau`) VALUES (?, ?)";
+		$result = $this->db->query($sql, array($masanpham, $tenmau));
+		return $result;
+	}
+
+	public function deleteMau($masanpham){
+		$sql = "DELETE FROM mausac WHERE MaSP = ?";
 		$result = $this->db->query($sql, array($masanpham));
 		return $result;
 	}

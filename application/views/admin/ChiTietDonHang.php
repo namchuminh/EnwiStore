@@ -32,6 +32,7 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
+                                                <th scope="col">Ảnh</th>
                                                 <th scope="col">Tên Sản Phẩm</th>
                                                 <th scope="col">Giá Bán</th>
                                                 <th scope="col">Số Lượng</th>
@@ -44,6 +45,10 @@
                                        		<?php foreach ($result as $key => $value): ?>
                                        			<tr>
 	                                                <th scope="row"><?php echo $key + 1; ?></th>
+                                                    <th>
+                                                        <img src="<?php echo base_url('uploads/'.$value['TenAnh']); ?>" alt="" style="width: 100px;
+                                                        height: 100px;">
+                                                    </th>
 	                                                <td><?php echo $value['TenSP']; ?></td>
                                                     <td><?php echo number_format($value['GiaTien']); ?>đ</td>
 	                                                <td>x<?php echo $value['SoLuong']; ?></td>

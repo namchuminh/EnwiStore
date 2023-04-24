@@ -80,11 +80,14 @@
 	                                	<?php $sum += $value['GiaTien'] * $value['SoLuong']; ?>
 	                                	<div class="item-product">
 		                                    <div class="row">
-		                                        <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+		                                        <div class="col-xl-4 col-lg-4 col-md-4 col-4">
 		                                            <p class="name"><a style="color: black; text-decoration: none;" href="<?php echo base_url('san-pham/'.$value['MaSP']); ?>"><?php echo $value['TenSP']; ?></a></p>
 		                                        </div>
 		                                        <div class="col-xl-2 col-lg-2 col-md-2 col-2">
 		                                            <p class="quantity">x<?php echo $value['SoLuong']; ?></p>
+		                                        </div>
+		                                         <div class="col-xl-2 col-lg-2 col-md-2 col-2">
+		                                            <p class="quantity"><?php echo $value['MauSac']; ?></p>
 		                                        </div>
 		                                        <div class="col-xl-4 col-lg-4 col-md-4 col-4 text-right">
 		                                            <p class="price"><?php echo number_format($value['GiaTien']); ?>đ</p>

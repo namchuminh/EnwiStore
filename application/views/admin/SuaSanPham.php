@@ -90,6 +90,23 @@
                                             <input type="text" placeholder="Nhập thông số" class="form-control form-control-line" required name="thongso" value="<?php echo $sanpham[0]['ThongSo']; ?>">
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Màu sắc</label>
+                                        <div class="col-md-12">
+                                            <input type="checkbox" id="vehicle1" name="white" value="White">
+                                            <label for="vehicle1" style="margin-right: 15px;"> Trắng</label>
+                                            <input type="checkbox" id="vehicle2" name="pink" value="Pink">
+                                            <label for="vehicle2" style="margin-right: 15px;"> Hồng</label>
+                                            <input type="checkbox" id="vehicle3" name="black" value="Black">
+                                            <label for="vehicle3" style="margin-right: 15px;"> Đen</label>
+                                            <input type="checkbox" id="vehicle3" name="gray" value="Gray">
+                                            <label for="vehicle3" style="margin-right: 15px;"> Xám</label>
+                                            <input type="checkbox" id="vehicle3" name="blue" value="Blue">
+                                            <label for="vehicle3" style="margin-right: 15px;"> Xanh</label>
+                                            <input type="checkbox" id="vehicle3" name="whitesmoke" value="Whitesmoke">
+                                            <label for="vehicle3" style="margin-right: 15px;"> Khói trắng</label>
+                                        </div>
+                                    </div>
                                     <?php if(isset($anh[0]['TenAnh'])){ ?>
                                         <div class="form-group">
                                             <label class="col-md-12">Ảnh chính</label>

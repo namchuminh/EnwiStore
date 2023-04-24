@@ -16,7 +16,7 @@
 	                    </div>
 	                    <div class="customer-phone">
 	                        <label>Số điện thoại: </label>
-	                        <input type="text" value="<?php echo $result[0]['SDT']; ?>" required name="sdt">
+	                        <input class="sdt" type="text" value="<?php echo $result[0]['SDT']; ?>" required name="sdt">
 	                    </div>
 	                    <div class="customer-email ">
 	                        <label>Email: </label>
@@ -77,11 +77,14 @@
 	                                <div class="sum-title">1 sản phẩm</div>
 	                                <div class="item-product">
 	                                    <div class="row">
-	                                        <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+	                                        <div class="col-xl-4 col-lg-4 col-md-4 col-4">
 	                                            <p class="name"><a style="color: black; text-decoration: none;" href="<?php echo base_url('san-pham/'.$product[0]['MaSP']); ?>"><?php echo $product[0]['TenSP']; ?></a></p>
 	                                        </div>
 	                                        <div class="col-xl-2 col-lg-2 col-md-2 col-2">
-	                                            <p class="quantity">x1</p>
+	                                            <p class="quantity">x<?php echo $sl; ?></p>
+	                                        </div>
+	                                        <div class="col-xl-2 col-lg-2 col-md-2 col-2">
+	                                            <p class="quantity"><?php echo $mau; ?></p>
 	                                        </div>
 	                                        <div class="col-xl-4 col-lg-4 col-md-4 col-4 text-right">
 	                                            <p class="price"><?php echo number_format($product[0]['GiaTien']); ?>đ</p>
@@ -92,7 +95,7 @@
 	                            <div class="item">
 	                                <div class="row">
 	                                    <div class="col-xl-6 col-lg-6 col-md-6 col-6">Đơn hàng</div>
-	                                    <div class="col-xl-6 col-lg-6 col-md-6 col-6 text-right"><?php echo number_format($product[0]['GiaTien']); ?>đ</div>
+	                                    <div class="col-xl-6 col-lg-6 col-md-6 col-6 text-right"><?php echo number_format($product[0]['GiaTien'] * $sl); ?>đ</div>
 	                                </div>
 	                            </div>
 
@@ -105,12 +108,12 @@
 	                            <div class="total">
 	                                <div class="row">
 	                                    <div class="col-xl-6 col-lg-6 col-md-6 col-6"><span>Tổng đơn</span></div>
-	                                    <div class="col-xl-6 col-lg-6 col-md-6 col-6 text-right"><strong><?php echo number_format($product[0]['GiaTien'] + 30000); ?>đ</strong></div>
+	                                    <div class="col-xl-6 col-lg-6 col-md-6 col-6 text-right"><strong><?php echo number_format($product[0]['GiaTien'] * $sl + 30000); ?>đ</strong></div>
 	                                </div>
 	                            </div>
 	                            <div class="item"><label class="checkbox-cm"><input type="checkbox" name="id_payment_method" id="id_payment_method_11" class="id_payment_method"><span class="checkmark"></span><span class="required">*</span> Tôi đã đọc và đồng ý với <a href="/kien-thuc/dieu-khoan-va-dieu-kien-giao-dich-mua-ban-hang-hoa-n653" target="_tblank" style="color: red;">điều khoản và điều kiện</a> của website</label></div>
 	                        </div>
-	                        <button type="submit" name="product">ĐẶT HÀNG</button>
+	                        <button class="dat" type="submit" name="product">ĐẶT HÀNG</button>
 	                    </div>
 	                </div>
 	            </div>
@@ -119,4 +122,22 @@
     </div>
 
 </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('.dat').click(function(e)){
+			var mobile = $('.sdt').val()
+			var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+		    if(mobile !==''){
+		        if (vnf_regex.test(mobile) == false) {
+		        	e.preventDefault();
+		            alert('Số điện thoại của bạn không đúng định dạng!');
+		        }
+		    }else{
+		    	e.preventDefault();
+		        alert('Số điện thoại của bạn không đúng định dạng!');
+		    }
+		}
+	});
+</script>
 <?php require(__DIR__.'/layouts/footer.php'); ?>    

@@ -70,9 +70,18 @@ class SanPham extends CI_Controller {
 
 			$listAnh = array($anhChinh, $anhPhu1, $anhPhu2, $anhPhu3, $anhPhu4);
 
+			$listMau = array('white', 'pink', 'black', 'gray', 'blue', 'whitesmoke');
+
+
 			if($this->Model_SanPham->addSanPham($masanpham,$maloai,$tensanpham,$soluong,$thuonghieu,$giatien,$chatlieu,$xuatxu,$thongso) == TRUE){
 				for ($i = 0; $i < count($listAnh); $i++) { 
 					$this->Model_SanPham->addAnh($masanpham,$listAnh[$i]);
+				}
+				for ($i = 0; $i < count($listMau); $i++) { 
+					if(isset($_POST[$listMau[$i]])){
+						$tenmau = $this->input->post($listMau[$i]);
+						$this->Model_SanPham->addMau($masanpham,$tenmau);
+					}
 				}
 				$data = array(
 					'result' => $this->Model_SanPham->getLoaiSanPham(),
@@ -166,7 +175,17 @@ class SanPham extends CI_Controller {
 				$this->Model_SanPham->updateAnh($anhPhu4,$masanpham,$tenanh);
 			}
 
+			$listMau = array('white', 'pink', 'black', 'gray', 'blue', 'whitesmoke');
+
+			$this->Model_SanPham->deleteMau($masanpham);
+
 			if($this->Model_SanPham->updateSanPham($masanpham,$maloai,$tensanpham,$soluong,$thuonghieu,$giatien,$chatlieu,$xuatxu,$thongso)){
+				for ($i = 0; $i < count($listMau); $i++) { 
+					if(isset($_POST[$listMau[$i]])){
+						$tenmau = $this->input->post($listMau[$i]);
+						$this->Model_SanPham->addMau($masanpham,$tenmau);
+					}
+				}
 				$data = array(
 					'loaisanpham' => $this->Model_SanPham->getLoaiSanPham(),
 					'sanpham' => $this->Model_SanPham->getSanPhamById($masanpham),
@@ -191,6 +210,7 @@ class SanPham extends CI_Controller {
 			'loaisanpham' => $this->Model_SanPham->getLoaiSanPham(),
 			'sanpham' => $this->Model_SanPham->getSanPhamById($masanpham),
 			'anh' => $this->Model_SanPham->getAnhById($masanpham),
+			'mau' => $this->Model_SanPham->getMauById($masanpham),
 		);
 
 		return $this->load->view('admin/SuaSanPham', $data);
@@ -198,6 +218,7 @@ class SanPham extends CI_Controller {
 
 	public function XoaSanPham($masanpham){
 		$this->Model_SanPham->deleteAnh($masanpham);
+		$this->Model_SanPham->deleteMau($masanpham);
 		$this->Model_SanPham->deleteSanPham($masanpham);
 		return redirect(base_url('admin/san-pham'));
 	}
