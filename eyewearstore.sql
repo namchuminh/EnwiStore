@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2023 at 01:00 PM
+-- Generation Time: Apr 24, 2023 at 03:17 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -188,7 +188,9 @@ CREATE TABLE `donhang` (
 
 INSERT INTO `donhang` (`MaDH`, `MaKH`, `TinhTrangDH`, `PTTT`, `HoTenKH`, `SDT`, `DiaChiNhanHang`, `Email`, `ThoiGian`, `TongTien`, `GhiChu`) VALUES
 ('DH000001', 1, 0, 0, 'Nguyễn Trung Quân', '0831244232', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội, TH, BV, Hà Nội', 'trungquan@gmail.com', '2023-04-24 17:56:26', 530000, 'Nhanh'),
-('DH000002', 1, 0, 0, 'Nguyễn Trung Quân', '0831244232', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội, DEF, ABC, Hà Nội', 'trungquan@gmail.com', '2023-04-24 17:59:25', 3530000, 'aaa');
+('DH000002', 1, 0, 0, 'Nguyễn Trung Quân', '0831244232', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội, DEF, ABC, Hà Nội', 'trungquan@gmail.com', '2023-04-24 17:59:25', 3530000, 'aaa'),
+('DH000003', 1, 0, 0, 'Nguyễn Trung Quân', '0831244232', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội, BBBB, AAA, Hà Nội', 'trungquan@gmail.com', '2023-04-24 19:49:29', 2530000, 'ABCD'),
+('DH000004', 1, 0, 0, 'Nguyễn Trung Quân', '0831244232', '56 Nguyên Xá, Bắc Từ Liêm, Hà Nội, mua ngay, mua ngay, Hà Nội', 'trungquan@gmail.com', '2023-04-24 19:51:57', 530000, 'mua ngay');
 
 -- --------------------------------------------------------
 
@@ -333,25 +335,25 @@ CREATE TABLE `sanpham` (
 
 INSERT INTO `sanpham` (`MaSP`, `MaLoai`, `TenSP`, `SoLuong`, `ThuongHieu`, `GiaTien`, `ChatLieu`, `XuatXu`, `ThongSo`) VALUES
 ('0001', 'L001', 'Kính nhựa Enwi GK0001', 550, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0002', 'L001', 'Kính nhựa Enwi GK0002', 250, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0003', 'L001', 'Kính nhựa Enwi GK0003', 300, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0004', 'L001', 'Kính nhựa Enwi GK0004', 253, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0005', 'L001', 'Kính nhựa Enwi GK0005', 200, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0006', 'L001', 'Kính nhựa Enwi GK0006', 200, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0002', 'L001', 'Kính nhựa Enwi GK0002', 250, 'Enwi', 480000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0003', 'L001', 'Kính nhựa Enwi GK0003', 300, 'Enwi', 600000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0004', 'L001', 'Kính nhựa Enwi GK0004', 253, 'Enwi', 800000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0005', 'L001', 'Kính nhựa Enwi GK0005', 200, 'Enwi', 300000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0006', 'L001', 'Kính nhựa Enwi GK0006', 200, 'Enwi', 300000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
 ('0007', 'L001', 'Kính nhựa Enwi GK0007', 50, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0008', 'L001', 'Kính nhựa Enwi GK0008', 120, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0009', 'L001', 'Kính nhựa Enwi GK0009', 120, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0010', 'L001', 'Kính nhựa Enwi GK0010', 120, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0008', 'L001', 'Kính nhựa Enwi GK0008', 120, 'Enwi', 900000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0009', 'L001', 'Kính nhựa Enwi GK0009', 120, 'Enwi', 550000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0010', 'L001', 'Kính nhựa Enwi GK0010', 120, 'Enwi', 4500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
 ('0011', 'L001', 'Kính kim loại Enwi GK0011', 150, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0012', 'L001', 'Kính kim loại Enwi GK0012', 350, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0013', 'L001', 'Kính kim loại Enwi GK0013', 110, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0014', 'L001', 'Kính kim loại Enwi GK0014', 125, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0015', 'L001', 'Kính kim loại Enwi GK0015', 100, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0016', 'L001', 'Kính nhựa pha kim loại Enwi GK0016', 108, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0017', 'L001', 'Kính nhựa pha kim loại Enwi GK0017', 63, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0018', 'L001', 'Kính nhựa pha kim loại Enwi GK0018', 360, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0019', 'L001', 'Kính nhựa pha kim loại Enwi GK0019', 190, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0020', 'L001', 'Kính nhựa pha kim loại Enwi GK0020', 220, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0012', 'L001', 'Kính kim loại Enwi GK0012', 350, 'Enwi', 1000000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0013', 'L001', 'Kính kim loại Enwi GK0013', 110, 'Enwi', 850000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0014', 'L001', 'Kính kim loại Enwi GK0014', 125, 'Enwi', 400000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0015', 'L001', 'Kính kim loại Enwi GK0015', 100, 'Enwi', 450000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0016', 'L001', 'Kính nhựa pha kim loại Enwi GK0016', 108, 'Enwi', 700000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0017', 'L001', 'Kính nhựa pha kim loại Enwi GK0017', 63, 'Enwi', 850000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0018', 'L001', 'Kính nhựa pha kim loại Enwi GK0018', 360, 'Enwi', 900000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0019', 'L001', 'Kính nhựa pha kim loại Enwi GK0019', 190, 'Enwi', 560000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0020', 'L001', 'Kính nhựa pha kim loại Enwi GK0020', 220, 'Enwi', 460000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
 ('0021', 'L002', 'Tròng kính đổi màu Hàn Quốc Chemi U2 chiết suất 1.56', 120, 'Chemi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
 ('0022', 'L002', 'Tròng kính Hàn Quốc Chemi U1 chiết suất 1.56', 140, 'Chemi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
 ('0023', 'L002', 'Tròng kính Hàn Quốc Chemi U2 chiết suất 1.60', 122, 'Chemi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
@@ -392,10 +394,10 @@ INSERT INTO `sanpham` (`MaSP`, `MaLoai`, `TenSP`, `SoLuong`, `ThuongHieu`, `GiaT
 ('0058', 'L003', 'Kính râm Enwi KR0058', 360, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
 ('0059', 'L003', 'Kính râm Enwi KR0059', 360, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
 ('0060', 'L003', 'Kính râm Enwi KR0060', 360, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0061', 'L004', 'Hộp kính da vintage', 360, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0062', 'L004', 'Hộp kính nhựa N62', 360, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0063', 'L004', 'Hộp kính nhựa N63', 87, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
-('0064', 'L004', 'Hộp kính nhựa N64', 87, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0061', 'L004', 'Hộp kính da vintage', 360, 'Enwi', 550000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0062', 'L004', 'Hộp kính nhựa N62', 360, 'Enwi', 580000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0063', 'L004', 'Hộp kính nhựa N63', 87, 'Enwi', 900000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
+('0064', 'L004', 'Hộp kính nhựa N64', 87, 'Enwi', 600000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
 ('0065', 'L004', 'Bao da mềm', 87, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
 ('0066', 'L004', 'Túi tote cute', 90, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
 ('0067', 'L004', 'Túi tote vải canvas', 90, 'Enwi', 500000, 'Nhựa cứng', 'Trung Quốc', '145mm-153mm-22mm'),
@@ -433,9 +435,11 @@ CREATE TABLE `sanpham_donhang` (
 
 INSERT INTO `sanpham_donhang` (`MaSP`, `MaDH`, `MauSac`, `SoLuong`, `PhiShip`) VALUES
 ('0073', 'DH000002', 'Trắng', 5, 30000),
+('0074', 'DH000004', 'Trắng', 10, 30000),
 ('0076', 'DH000002', 'Đen', 1, 30000),
 ('0078', 'DH000002', 'Đen', 1, 30000),
-('0079', 'DH000001', 'Trắng', 15, 30000);
+('0079', 'DH000001', 'Trắng', 15, 30000),
+('0079', 'DH000003', 'Trắng', 5, 30000);
 
 -- --------------------------------------------------------
 

@@ -23,10 +23,15 @@
                     <button> <span>Bộ lọc</span> <i class="fas fa-sort-down"></i> </button>
                 </div>
                 <div class="cartegory-right-top-item">
-                    <select name="" id="">
+                    <select name="" id="" onchange="location = this.value;">
                         <option value="">Sắp xếp</option>
-                        <option value="">Giá cao đến thấp</option>
-                        <option value="">Giá thấp đến cao</option>
+                        <?php if(isset($_GET['trang'])){ ?>
+                            <option value="<?php echo base_url('chuyen-muc/'.$MaLoai.'/'.$TinhChat); ?>?trang=<?php echo $_GET['trang']; ?>&sap_xep=giam">Giá cao đến thấp</option>
+                            <option value="<?php echo base_url('chuyen-muc/'.$MaLoai.'/'.$TinhChat); ?>?trang=<?php echo $_GET['trang']; ?>&sap_xep=tang">Giá thấp đến cao</option>
+                        <?php }else{ ?>
+                            <option value="<?php echo base_url('chuyen-muc/'.$MaLoai.'/'.$TinhChat); ?>?sap_xep=giam">Giá cao đến thấp</option>
+                            <option value="<?php echo base_url('chuyen-muc/'.$MaLoai.'/'.$TinhChat); ?>?sap_xep=tang">Giá thấp đến cao</option>
+                        <?php } ?>
                     </select>
                 </div>
 

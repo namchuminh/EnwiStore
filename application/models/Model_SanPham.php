@@ -69,6 +69,48 @@ class Model_SanPham extends CI_Model {
 		}
 	}
 
+	public function getCategoryOrderDESC($MaLoai,$TinhChat, $start, $limit){
+		if($MaLoai == "L001"){
+			$sql = "SELECT sanpham.*, loaisp.*, anh.* FROM `sanpham`, `loaisp`, `anh` WHERE sanpham.MaLoai = loaisp.MaLoai AND sanpham.MaSP = anh.MaSP AND sanpham.MaLoai = ? AND sanpham.ChatLieu = ? GROUP BY sanpham.MaSP ORDER BY sanpham.GiaTien DESC LIMIT ?, ?";
+			$result = $this->db->query($sql,array($MaLoai, $TinhChat, $start, $limit));
+			return $result->result_array();
+		}else if($MaLoai == "L002"){
+			$sql = "SELECT sanpham.*, loaisp.*, anh.* FROM `sanpham`, `loaisp`, `anh` WHERE sanpham.MaLoai = loaisp.MaLoai AND sanpham.MaSP = anh.MaSP AND sanpham.MaLoai = ? AND sanpham.ThuongHieu = ? GROUP BY sanpham.MaSP ORDER BY sanpham.GiaTien DESC LIMIT ?, ?";
+			$result = $this->db->query($sql,array($MaLoai, $TinhChat, $start, $limit));
+			return $result->result_array();
+		}else if($MaLoai == "L003"){
+			$sql = "SELECT sanpham.*, loaisp.*, anh.* FROM `sanpham`, `loaisp`, `anh` WHERE sanpham.MaLoai = loaisp.MaLoai AND sanpham.MaSP = anh.MaSP AND sanpham.MaLoai = ? GROUP BY sanpham.MaSP ORDER BY sanpham.GiaTien DESC LIMIT ?, ?";
+			$result = $this->db->query($sql,array($MaLoai,$start,$limit));
+			return $result->result_array();
+		}else if($MaLoai == "L004"){
+			$TinhChat = "%".$TinhChat."%";
+			$sql = "SELECT sanpham.*, loaisp.*, anh.* FROM `sanpham`, `loaisp`, `anh` WHERE sanpham.MaLoai = loaisp.MaLoai AND sanpham.MaSP = anh.MaSP AND sanpham.MaLoai = ? AND sanpham.TenSP LIKE ? GROUP BY sanpham.MaSP ORDER BY sanpham.GiaTien DESC LIMIT ?, ?";
+			$result = $this->db->query($sql,array($MaLoai, $TinhChat, $start, $limit));
+			return $result->result_array();
+		}
+	}
+
+	public function getCategoryOrderASC($MaLoai,$TinhChat, $start, $limit){
+		if($MaLoai == "L001"){
+			$sql = "SELECT sanpham.*, loaisp.*, anh.* FROM `sanpham`, `loaisp`, `anh` WHERE sanpham.MaLoai = loaisp.MaLoai AND sanpham.MaSP = anh.MaSP AND sanpham.MaLoai = ? AND sanpham.ChatLieu = ? GROUP BY sanpham.MaSP ORDER BY sanpham.GiaTien ASC LIMIT ?, ?";
+			$result = $this->db->query($sql,array($MaLoai, $TinhChat, $start, $limit));
+			return $result->result_array();
+		}else if($MaLoai == "L002"){
+			$sql = "SELECT sanpham.*, loaisp.*, anh.* FROM `sanpham`, `loaisp`, `anh` WHERE sanpham.MaLoai = loaisp.MaLoai AND sanpham.MaSP = anh.MaSP AND sanpham.MaLoai = ? AND sanpham.ThuongHieu = ? GROUP BY sanpham.MaSP ORDER BY sanpham.GiaTien ASC LIMIT ?, ?";
+			$result = $this->db->query($sql,array($MaLoai, $TinhChat, $start, $limit));
+			return $result->result_array();
+		}else if($MaLoai == "L003"){
+			$sql = "SELECT sanpham.*, loaisp.*, anh.* FROM `sanpham`, `loaisp`, `anh` WHERE sanpham.MaLoai = loaisp.MaLoai AND sanpham.MaSP = anh.MaSP AND sanpham.MaLoai = ? GROUP BY sanpham.MaSP ORDER BY sanpham.GiaTien ASC LIMIT ?, ?";
+			$result = $this->db->query($sql,array($MaLoai,$start,$limit));
+			return $result->result_array();
+		}else if($MaLoai == "L004"){
+			$TinhChat = "%".$TinhChat."%";
+			$sql = "SELECT sanpham.*, loaisp.*, anh.* FROM `sanpham`, `loaisp`, `anh` WHERE sanpham.MaLoai = loaisp.MaLoai AND sanpham.MaSP = anh.MaSP AND sanpham.MaLoai = ? AND sanpham.TenSP LIKE ? GROUP BY sanpham.MaSP ORDER BY sanpham.GiaTien ASC LIMIT ?, ?";
+			$result = $this->db->query($sql,array($MaLoai, $TinhChat, $start, $limit));
+			return $result->result_array();
+		}
+	}
+
 	public function getSumProductCategory($MaLoai,$TinhChat){
 		if($MaLoai == "L001"){
 			$sql = "SELECT sanpham.*, loaisp.*, anh.* FROM `sanpham`, `loaisp`, `anh` WHERE sanpham.MaLoai = loaisp.MaLoai AND sanpham.MaSP = anh.MaSP AND sanpham.MaLoai = ? AND sanpham.ChatLieu = ? GROUP BY sanpham.MaSP";
@@ -92,6 +134,18 @@ class Model_SanPham extends CI_Model {
 
 	public function getCategoryProduct($MaLoai, $start, $limit){
 		$sql = "SELECT sanpham.*, loaisp.*, anh.* FROM `sanpham`, `loaisp`, `anh` WHERE sanpham.MaLoai = loaisp.MaLoai AND sanpham.MaSP = anh.MaSP AND sanpham.MaLoai = ? GROUP BY sanpham.MaSP LIMIT ?, ?";
+		$result = $this->db->query($sql,array($MaLoai, $start, $limit));
+		return $result->result_array();
+	}
+
+	public function getCategoryProductASC($MaLoai, $start, $limit){
+		$sql = "SELECT sanpham.*, loaisp.*, anh.* FROM `sanpham`, `loaisp`, `anh` WHERE sanpham.MaLoai = loaisp.MaLoai AND sanpham.MaSP = anh.MaSP AND sanpham.MaLoai = ? GROUP BY sanpham.MaSP ORDER BY sanpham.GiaTien ASC LIMIT ?, ?";
+		$result = $this->db->query($sql,array($MaLoai, $start, $limit));
+		return $result->result_array();
+	}
+
+	public function getCategoryProductDESC($MaLoai, $start, $limit){
+		$sql = "SELECT sanpham.*, loaisp.*, anh.* FROM `sanpham`, `loaisp`, `anh` WHERE sanpham.MaLoai = loaisp.MaLoai AND sanpham.MaSP = anh.MaSP AND sanpham.MaLoai = ? GROUP BY sanpham.MaSP ORDER BY sanpham.GiaTien DESC LIMIT ?, ?";
 		$result = $this->db->query($sql,array($MaLoai, $start, $limit));
 		return $result->result_array();
 	}
